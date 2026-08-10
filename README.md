@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# أجروميد — AGROMEED Storefront
 
-## Getting Started
+متجر إلكتروني (واجهة أمامية) لشركة أجروميد للتنمية الزراعية والصناعية.
+عربي بالكامل (RTL)، مبني على Next.js 16 + Tailwind CSS 4.
 
-First, run the development server:
+🔗 **الموقع المباشر:** https://arg.aligm.cloud
+
+---
+
+## المحتوى
+
+| القسم | العدد | المصدر |
+| --- | --- | --- |
+| الأسمدة السائلة | 13 منتج | كتالوج الشركة المطبوع |
+| الأسمدة الذوابة (NPK + عناصر) | 15 منتج | كتالوج الشركة المطبوع |
+| الأسمدة المعلقة | 5 منتجات | كتالوج الشركة المطبوع |
+| الخامات الزراعية | 10 أصناف | **بيانات مبدئية للعرض** — تُستبدل بقوائم الاستيراد الفعلية |
+
+كل منتج يحتوي على: جدول التركيب، مميزات المنتج، معدلات الاستخدام (رش ورقي / تسميد عبر الري)،
+العبوات المتاحة، وصورة العبوة المستخرجة من الكتالوج.
+
+## الصفحات
+
+- `/` الرئيسية — هيرو، الأقسام، منتجات مختارة، الميزة التنافسية، القطاعات المخدومة
+- `/products` قائمة المنتجات مع تصفية بالقسم وبحث حي وترتيب
+- `/products/[slug]` صفحة المنتج
+- `/raw-materials` الخامات الزراعية
+- `/about` عن الشركة (الرؤية، الرسالة، القيم، الأهداف، الخدمات)
+- `/contact` تواصل معنا + نموذج التقاط بيانات العميل
+- `/quote` طلب عرض سعر (سلة RFQ + بيانات العميل)
+
+## نقاط تحتاج تأكيد من العميل
+
+1. **الأسعار** — لم تُحدَّد بعد، لذا يعرض الموقع «السعر عند الطلب» مع تدفق طلب عرض سعر.
+   الحقل `price` موجود في `src/lib/types.ts`؛ إدخال قيمة رقمية يفعّل عرض السعر مباشرة.
+2. **جرومو فروتكس** — الكتالوج المطبوع يذكر البورون `40%`، وهي نسبة غير واقعية لسماد سائل.
+   الموقع يعرض `4%` مؤقتاً — يُرجى التأكيد.
+3. **العنوان** — المقر الرئيسي مُسجَّل بالغردقة (حسب طلبك) والمصنع بالمنيا الجديدة (حسب الكتالوج).
+
+## التطوير المحلي
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## النشر
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+الموقع منشور كحاوية Docker على الخادم خلف بروكسي Traefik الخاص بـ Coolify.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+ssh root@187.77.67.160 'bash /root/agromeed/deploy.sh'
+```
 
-## Learn More
+السكربت يسحب آخر نسخة من `main`، يبني الصورة، ويعيد تشغيل الحاوية `agromeed-app`
+مع شهادة SSL تلقائية من Let's Encrypt.
 
-To learn more about Next.js, take a look at the following resources:
+## الربط بنظام CRM لاحقاً
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+كل نماذج الموقع (تواصل معنا / طلب عرض سعر) تمر عبر مكوّن واحد:
+`src/components/LeadForm.tsx`. الدالة `handleSubmit` تبني كائن `payload` يحتوي على:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```ts
+{ name, phone, email, company, governorate, type, message, source, items[] }
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+لربط الـ CRM يكفي استبدال سطر `console.info` بنداء `fetch` إلى نقطة النهاية المطلوبة —
+لا حاجة لتعديل أي صفحة أخرى.

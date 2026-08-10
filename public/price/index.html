@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta name="robots" content="noindex, nofollow">
+<meta charset="utf-8">
+<title>عرض سعر — منصة أجروميد الرقمية | ديم</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+@import url("./faces.css");
+
+:root {
+  --deem:#1B4B66; --deem-2:#2A6C90; --brass:#A87732; --brass-2:#C89A46;
+  --ink:#101820; --body:#2C3742; --muted:#5E6A75; --faint:#8A959F;
+  --rule:#E1E6EA; --rule-2:#EFF2F4;
+  --ground:#F7F8F9; --surface:#FFFFFF; --sunk:#F1F4F6;
+  --ok:#1F6B4A;
+  --shadow:0 1px 2px rgba(16,24,32,.04), 0 8px 24px -12px rgba(16,24,32,.14);
+  --maxw:1180px;
+}
+:root { --brass-2:#C89A46; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --deem:#7FB4D2; --deem-2:#A9CFE4; --brass:#D6A452; --brass-2:#E7BE79;
+    --ink:#EAF0F5; --body:#C2CDD6; --muted:#8E9BA6; --faint:#6B7883;
+    --rule:#26313A; --rule-2:#1D262D;
+    --ground:#0D1216; --surface:#141B21; --sunk:#111920;
+    --ok:#4EA37B;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"] {
+  --deem:#7FB4D2; --deem-2:#A9CFE4; --brass:#D6A452; --brass-2:#E7BE79;
+  --ink:#EAF0F5; --body:#C2CDD6; --muted:#8E9BA6; --faint:#6B7883;
+  --rule:#26313A; --rule-2:#1D262D;
+  --ground:#0D1216; --surface:#141B21; --sunk:#111920;
+  --ok:#4EA37B;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+:root[data-theme="light"] {
+  --deem:#1B4B66; --deem-2:#2A6C90; --brass:#A87732; --brass-2:#C89A46;
+  --ink:#101820; --body:#2C3742; --muted:#5E6A75; --faint:#8A959F;
+  --rule:#E1E6EA; --rule-2:#EFF2F4;
+  --ground:#F7F8F9; --surface:#FFFFFF; --sunk:#F1F4F6;
+  --ok:#1F6B4A;
+  --shadow:0 1px 2px rgba(16,24,32,.04), 0 8px 24px -12px rgba(16,24,32,.14);
+}
+
+* { box-sizing:border-box; }
+html { -webkit-text-size-adjust:100%; }
+body {
+  margin:0; direction:rtl; text-align:right;
+  background:var(--ground); color:var(--body);
+  font-family:'IBM Plex Sans Arabic', system-ui, sans-serif;
+  font-size:15px; line-height:1.75; font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4 { font-family:'Readex Pro','IBM Plex Sans Arabic',sans-serif; color:var(--ink); text-wrap:balance; margin:0; font-weight:700; line-height:1.35; }
+p { margin:0; }
+ul { margin:0; padding:0; list-style:none; }
+a { color:var(--deem); }
+:focus-visible { outline:2px solid var(--brass); outline-offset:2px; border-radius:3px; }
+
+.n { direction:ltr; unicode-bidi:isolate; font-variant-numeric:tabular-nums; font-feature-settings:"tnum"; }
+.cur { font-size:.42em; font-weight:400; color:var(--muted); margin-inline-start:.35em; letter-spacing:.02em; }
+
+.wrap { max-width:var(--maxw); margin-inline:auto; padding-inline:clamp(16px,4vw,40px); }
+
+/* ── ترويسة ── */
+.lh { background:var(--deem); color:#EAF2F7; padding-block:clamp(28px,5vw,48px); }
+:root[data-theme="dark"] .lh, :root:not([data-theme="light"]) .lh { }
+@media (prefers-color-scheme: dark) { .lh { background:#0F2C3D; } }
+:root[data-theme="dark"] .lh { background:#0F2C3D; }
+:root[data-theme="light"] .lh { background:#1B4B66; }
+.lh__grid { display:grid; gap:clamp(24px,4vw,48px); grid-template-columns:1fr; }
+@media (min-width:820px) { .lh__grid { grid-template-columns:1.1fr .9fr; align-items:start; } }
+.mark { display:flex; align-items:center; gap:14px; }
+.mark__glyph { width:52px; height:52px; flex:none; }
+.mark__txt strong { display:block; font-family:'Readex Pro',sans-serif; font-size:30px; color:#fff; line-height:1; letter-spacing:-.01em; }
+.mark__txt span { display:block; font-size:12.5px; color:#9DC2D6; margin-top:5px; letter-spacing:.06em; }
+.lh h1 { color:#fff; font-size:clamp(26px,4.4vw,40px); margin-top:26px; letter-spacing:-.015em; }
+.lh__sub { color:#B6D3E3; margin-top:10px; max-width:46ch; font-size:15.5px; }
+.lh__meta { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14); border-radius:12px; padding:20px 22px; }
+.lh__meta dl { margin:0; display:grid; gap:13px; }
+.lh__meta div { display:flex; justify-content:space-between; gap:16px; align-items:baseline; border-bottom:1px dashed rgba(255,255,255,.16); padding-bottom:11px; }
+.lh__meta div:last-child { border-bottom:0; padding-bottom:0; }
+.lh__meta dt { color:#9DC2D6; font-size:12.5px; letter-spacing:.03em; }
+.lh__meta dd { margin:0; color:#fff; font-weight:600; font-size:14.5px; text-align:left; }
+.lh__rule { height:3px; background:linear-gradient(90deg,var(--brass-2) 0 34%, rgba(255,255,255,.18) 34%); }
+
+/* ── أقسام ── */
+main { padding-block:clamp(32px,5vw,60px) 40px; }
+.sec { margin-bottom:clamp(40px,6vw,72px); }
+.sec__h { display:flex; align-items:baseline; gap:14px; margin-bottom:8px; padding-bottom:14px; border-bottom:2px solid var(--ink); }
+.sec__h h2 { font-size:clamp(19px,2.6vw,25px); letter-spacing:-.01em; }
+.sec__h .idx { font-family:'Readex Pro',sans-serif; font-size:13px; color:var(--brass); font-weight:700; letter-spacing:.08em; }
+.sec__lead { color:var(--muted); margin:16px 0 26px; max-width:78ch; font-size:14.5px; }
+
+/* ── ملخص ── */
+.summary { display:grid; gap:16px; grid-template-columns:1fr; }
+@media (min-width:760px) { .summary { grid-template-columns:1.35fr 1fr; } }
+.brief { background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:26px 28px; box-shadow:var(--shadow); }
+.brief p + p { margin-top:14px; }
+.brief strong { color:var(--ink); font-weight:600; }
+.asset { background:var(--surface); border:1px solid var(--rule); border-inline-start:4px solid var(--brass); border-radius:14px; padding:24px 26px; box-shadow:var(--shadow); }
+.asset h3 { font-size:16.5px; margin-bottom:6px; }
+.asset__fig { font-family:'Readex Pro',sans-serif; font-size:34px; color:var(--brass); font-weight:700; margin:14px 0 2px; line-height:1; }
+.asset__note { font-size:13.5px; color:var(--muted); }
+.asset ul { margin-top:16px; display:grid; gap:8px; font-size:13.5px; }
+.asset li { display:flex; gap:9px; align-items:baseline; }
+.asset li::before { content:''; width:5px; height:5px; border-radius:50%; background:var(--brass); flex:none; transform:translateY(-2px); }
+
+/* ── بطاقات الباقات ── */
+.pkgs { display:grid; gap:20px; grid-template-columns:1fr; align-items:start; }
+@media (min-width:900px) { .pkgs { grid-template-columns:repeat(3,1fr); } }
+.pcard { position:relative; background:var(--surface); border:1px solid var(--rule); border-radius:16px; padding:26px 24px; display:flex; flex-direction:column; gap:18px; box-shadow:var(--shadow); }
+.pcard--rec { border-color:var(--brass); border-width:2px; padding-top:34px; }
+.pcard__flag { position:absolute; top:-1px; inset-inline-start:24px; transform:translateY(-50%); background:var(--brass); color:#fff; font-size:11.5px; font-weight:700; letter-spacing:.05em; padding:5px 13px; border-radius:100px; }
+.pcard__head h3 { font-size:21px; }
+.pcard__tag { color:var(--muted); font-size:13.5px; margin-top:7px; line-height:1.65; }
+.pcard__price { border-block:1px solid var(--rule-2); padding-block:18px; }
+.pcard__figure { font-family:'Readex Pro',sans-serif; font-size:36px; font-weight:700; color:var(--ink); line-height:1; letter-spacing:-.02em; }
+.pcard--rec .pcard__figure { color:var(--brass); }
+.pcard__meta { margin:14px 0 0; display:grid; gap:7px; font-size:13px; }
+.pcard__meta div { display:flex; justify-content:space-between; gap:12px; }
+.pcard__meta dt { color:var(--muted); }
+.pcard__meta dd { margin:0; color:var(--body); font-variant-numeric:tabular-nums; }
+.pcard__meta .is-total { padding-top:7px; border-top:1px dashed var(--rule); }
+.pcard__meta .is-total dt { color:var(--ink); font-weight:600; }
+.pcard__meta .is-total dd { color:var(--ink); font-weight:700; }
+.pcard__facts { display:grid; gap:9px; font-size:13.5px; }
+.pcard__facts li { display:flex; justify-content:space-between; gap:12px; padding-bottom:9px; border-bottom:1px dotted var(--rule); }
+.pcard__facts li:last-child { border-bottom:0; padding-bottom:0; }
+.pcard__facts span { color:var(--muted); }
+.pcard__facts b { color:var(--ink); font-weight:600; }
+.pcard__for { background:var(--sunk); border-radius:10px; padding:15px 16px; }
+.pcard__for span { display:block; font-size:11.5px; color:var(--brass); font-weight:700; letter-spacing:.06em; margin-bottom:6px; }
+.pcard__for p { font-size:13px; color:var(--body); line-height:1.7; }
+.pcard__det { border-top:1px solid var(--rule-2); padding-top:14px; }
+.pcard__det summary { cursor:pointer; font-weight:600; color:var(--deem); font-size:13.5px; list-style:none; display:flex; align-items:center; gap:8px; }
+.pcard__det summary::-webkit-details-marker { display:none; }
+.pcard__det summary::before { content:'+'; font-family:'Readex Pro',sans-serif; width:18px; height:18px; flex:none; display:grid; place-items:center; border:1px solid currentColor; border-radius:5px; font-size:13px; line-height:1; }
+.pcard__det[open] summary::before { content:'−'; }
+.pcard__det--x summary { color:var(--muted); }
+.pcard__det ul { margin-top:13px; display:grid; gap:9px; font-size:12.8px; line-height:1.7; }
+.tick li, .cross li { display:flex; gap:9px; align-items:flex-start; }
+.tick li::before { content:'✓'; color:var(--ok); font-weight:700; flex:none; font-size:12px; line-height:1.55; }
+.cross li::before { content:'—'; color:var(--faint); flex:none; line-height:1.55; }
+.cross li { color:var(--muted); }
+
+/* ── جدول الأسعار اليومية ── */
+.rates { display:grid; gap:14px; grid-template-columns:1fr; }
+@media (min-width:720px) { .rates { grid-template-columns:repeat(3,1fr); } }
+.rate { background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:20px 22px; }
+.rate b { display:block; font-family:'Readex Pro',sans-serif; font-size:26px; color:var(--ink); line-height:1; }
+.rate b .cur { font-size:.5em; }
+.rate strong { display:block; font-size:14px; color:var(--ink); font-weight:600; margin:12px 0 5px; }
+.rate p { font-size:12.8px; color:var(--muted); line-height:1.65; }
+.formula { margin-top:18px; background:var(--sunk); border-radius:10px; padding:16px 18px; font-size:13.5px; color:var(--body); }
+.formula code { font-family:'IBM Plex Sans Arabic',monospace; background:var(--surface); border:1px solid var(--rule); border-radius:6px; padding:2px 8px; color:var(--ink); font-weight:600; }
+
+/* ── جداول ── */
+.tblwrap { overflow-x:auto; border:1px solid var(--rule); border-radius:12px; background:var(--surface); }
+.tbl { width:100%; border-collapse:collapse; font-size:13.6px; min-width:640px; }
+.tbl th { background:var(--sunk); color:var(--ink); font-weight:600; font-size:12.5px; letter-spacing:.02em; text-align:right; padding:12px 16px; border-bottom:1px solid var(--rule); white-space:nowrap; }
+.tbl td { padding:14px 16px; border-bottom:1px solid var(--rule-2); vertical-align:top; }
+.tbl tbody tr:last-child td { border-bottom:0; }
+.tbl tfoot td { background:var(--sunk); font-weight:700; color:var(--ink); border-top:1px solid var(--rule); }
+.c-item b { color:var(--ink); font-weight:600; display:block; margin-bottom:5px; font-size:14px; }
+.c-item p { color:var(--muted); font-size:12.7px; line-height:1.7; max-width:70ch; }
+.c-num { text-align:left; white-space:nowrap; font-variant-numeric:tabular-nums; }
+.c-money { color:var(--ink); font-weight:600; }
+.c-per { white-space:nowrap; color:var(--muted); font-size:12.7px; }
+.c-no { font-family:'Readex Pro',sans-serif; color:var(--brass); font-weight:700; width:1%; }
+.c-pct { font-weight:700; color:var(--brass); font-family:'Readex Pro',sans-serif; }
+.c-weeks { white-space:nowrap; color:var(--deem); font-weight:600; font-size:13px; }
+.is-free .c-money { color:var(--ok); font-weight:600; }
+.dots { display:grid; gap:6px; margin-top:8px; }
+.dots li { color:var(--muted); font-size:12.7px; display:flex; gap:8px; line-height:1.65; }
+.dots li::before { content:''; width:4px; height:4px; border-radius:50%; background:var(--deem); flex:none; transform:translateY(8px); }
+.chips { display:flex; gap:4px; }
+.chip { font-style:normal; font-size:10.5px; padding:3px 7px; border-radius:5px; background:var(--sunk); color:var(--faint); border:1px solid var(--rule-2); white-space:nowrap; }
+.chip--on { background:var(--deem); color:#fff; border-color:var(--deem); font-weight:600; }
+.msv { display:inline-flex; align-items:baseline; gap:6px; margin-inline-end:12px; font-size:12.5px; white-space:nowrap; }
+.msv i { font-style:normal; color:var(--faint); font-size:10.5px; }
+.msv .n { color:var(--ink); font-weight:600; }
+.c-vals { min-width:230px; }
+
+.phase { margin-bottom:26px; }
+.phase__h { font-size:15.5px; display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+.phase__no { font-family:'Readex Pro',sans-serif; font-size:11.5px; color:var(--brass); background:var(--sunk); border:1px solid var(--rule); padding:4px 10px; border-radius:6px; white-space:nowrap; }
+
+.grand { margin-top:22px; display:grid; gap:12px; grid-template-columns:1fr; }
+@media (min-width:760px) { .grand { grid-template-columns:repeat(3,1fr); } }
+.grand__c { background:var(--surface); border:1px solid var(--rule); border-radius:12px; padding:18px 20px; }
+.grand__c.is-rec { border-color:var(--brass); }
+.grand__c h4 { font-size:14.5px; margin-bottom:12px; }
+.grand__c dl { margin:0; display:grid; gap:7px; font-size:13px; }
+.grand__c div { display:flex; justify-content:space-between; gap:10px; }
+.grand__c dt { color:var(--muted); }
+.grand__c dd { margin:0; font-variant-numeric:tabular-nums; color:var(--body); }
+.grand__c .tot { border-top:1px solid var(--rule); padding-top:8px; margin-top:3px; }
+.grand__c .tot dt { color:var(--ink); font-weight:600; }
+.grand__c .tot dd { color:var(--ink); font-weight:700; font-size:15px; }
+
+/* ── قوائم نصية ── */
+.terms { counter-reset:t; display:grid; gap:13px; }
+.terms li { counter-increment:t; position:relative; padding-inline-start:38px; font-size:13.6px; line-height:1.8; color:var(--body); }
+.terms li::before { content:counter(t); position:absolute; inset-inline-start:0; top:1px; width:26px; height:26px; display:grid; place-items:center; background:var(--sunk); border:1px solid var(--rule); border-radius:7px; font-family:'Readex Pro',sans-serif; font-size:11.5px; color:var(--deem); font-weight:700; }
+.cols { column-gap:36px; }
+@media (min-width:900px) { .cols { columns:2; } .cols li { break-inside:avoid; } }
+
+.note { background:var(--sunk); border-inline-start:3px solid var(--deem); border-radius:0 10px 10px 0; padding:16px 20px; font-size:13.4px; color:var(--body); line-height:1.8; }
+.note b { color:var(--ink); }
+
+/* ── توقيع ── */
+.sign { background:var(--surface); border:1px solid var(--rule); border-radius:14px; padding:clamp(24px,4vw,34px); box-shadow:var(--shadow); }
+.sign__grid { display:grid; gap:30px; grid-template-columns:1fr; margin-top:26px; }
+@media (min-width:700px) { .sign__grid { grid-template-columns:1fr 1fr; } }
+.sign__box strong { display:block; font-size:13.5px; color:var(--ink); margin-bottom:26px; }
+.sign__line { border-bottom:1px solid var(--rule); padding-bottom:7px; margin-bottom:16px; font-size:12.5px; color:var(--faint); }
+.foot { border-top:1px solid var(--rule); margin-top:44px; padding-top:22px; display:flex; flex-wrap:wrap; gap:14px 26px; justify-content:space-between; font-size:12.3px; color:var(--faint); }
+
+.printbtn {
+  position:fixed; inset-block-end:22px; inset-inline-start:22px; z-index:50;
+  display:inline-flex; align-items:center; gap:9px;
+  background:var(--deem); color:#fff; border:0; border-radius:100px;
+  padding:13px 22px; font-family:'IBM Plex Sans Arabic',sans-serif; font-size:14px; font-weight:600;
+  cursor:pointer; box-shadow:0 6px 22px -6px rgba(0,0,0,.45);
+  transition:transform .18s ease, filter .18s ease;
+}
+.printbtn:hover { transform:translateY(-2px); filter:brightness(1.08); }
+.printbtn svg { width:18px; height:18px; }
+@media print {
+  .printbtn { display:none !important; }
+  :root { --ground:#fff; --surface:#fff; --sunk:#F4F6F7; --shadow:none; }
+  body { font-size:10.5pt; background:#fff; }
+  .lh { background:#1B4B66 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .pcard, .tblwrap, .brief, .asset, .sign, .rate, .grand__c { break-inside:avoid; }
+  .tbl tr { break-inside:avoid; }
+  .tbl thead { display:table-header-group; }
+  .sec { break-inside:auto; }
+  .pcard__det { display:block !important; }
+  .pcard__det > summary { list-style:none; }
+  details { }
+  details:not([open]) > *:not(summary) { display:block !important; }
+  .chip, .chip--on { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  @page { margin:14mm 12mm; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation:none !important; transition:none !important; } }
+</style>
+
+</head>
+<body>
+<header class="lh">
+  <div class="wrap lh__grid">
+    <div>
+      <div class="mark">
+        <svg class="mark__glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <rect width="48" height="48" rx="11" fill="rgba(255,255,255,.10)"/>
+          <path d="M16 33c0-5.2 3.4-9.6 8-11.2C28.6 23.4 32 27.8 32 33a8 8 0 0 1-16 0Z" fill="#C89A46"/>
+          <path d="M24 8v11" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".65"/>
+          <path d="M15.5 13.5 18 19M32.5 13.5 30 19" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity=".35"/>
+        </svg>
+        <span class="mark__txt"><strong>ديم</strong><span>DEEM · حلول ويب وأنظمة أعمال</span></span>
+      </div>
+      <h1>عرض سعر — المنصة الرقمية التجارية لشركة أجروميد</h1>
+      <p class="lh__sub">موقع إلكتروني للبيع، ولوحة تحكم يديرها فريقكم، ونظام إدارة علاقات عملاء — مبنيّة فوق النموذج العامل المسلَّم بالفعل.</p>
+    </div>
+    <div class="lh__meta">
+      <dl>
+        <div><dt>مقدَّم إلى</dt><dd>شركة أجروميد للتنمية<br>الزراعية والصناعية</dd></div>
+        <div><dt>رقم العرض</dt><dd class="n">DEEM-2026-0814</dd></div>
+        <div><dt>التاريخ</dt><dd><span class="n">10</span> أغسطس <span class="n">2026</span></dd></div>
+        <div><dt>صلاحية العرض</dt><dd><span class="n">21</span> يوماً</dd></div>
+        <div><dt>العملة</dt><dd>الجنيه المصري</dd></div>
+      </dl>
+    </div>
+  </div>
+</header>
+<div class="lh__rule"></div>
+
+<main class="wrap">
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">01</span><h2>ملخص العرض</h2></div>
+    <div class="summary">
+      <div class="brief">
+        <p>يعمل اليوم على الإنترنت نموذج كامل لمتجر أجروميد: <strong>سبع صفحات عربية</strong> و<strong><span class="n">43</span> منتجاً</strong> منقولة بمواصفاتها الكيميائية ومعدلات استخدامها من كتالوج الشركة المطبوع، و<strong><span class="n">33</span> صورة عبوة</strong> معالَجة، وهوية بصرية مستخرَجة من الكتالوج نفسه.</p>
+        <p>ما ينقصه ليصبح نظاماً تجارياً هو ما لا يُرى من الواجهة: قاعدة بيانات، ولوحة تحكم تُدخِلون بها منتجاتكم وأسعاركم بأيديكم، وطلبات تصل إلى المبيعات وتُسجَّل ولا تضيع، ونظام لإدارة العملاء والموزعين.</p>
+        <p>يعرض هذا المستند <strong>ثلاث باقات</strong> تبدأ من تشغيل المتجر بأيدي فريقكم وتنتهي بمنظومة بيع وتحصيل وفوترة إلكترونية وتطبيق على المتجرين. البنود مفصّلة بأيام العمل وسعر اليوم، ويمكنكم التحقق من كل رقم بالقسمة.</p>
+      </div>
+      <aside class="asset">
+        <h3>ما أُنجز بالفعل — وغير محتسب</h3>
+        <div class="asset__fig"><span class="n">142,500</span><span class="cur">ج.م</span></div>
+        <p class="asset__note"><span class="n">19</span> يوم عمل × <span class="n">7,500</span> ج — مُنجزة ومسلَّمة ولم تُدرج في أي باقة.</p>
+        <ul>
+          <li>واجهة Next.js عاملة بسبع صفحات و<span class="n">28</span> مكوّناً</li>
+          <li>تفريغ <span class="n">43</span> منتجاً من كتالوج PDF مصوّر من <span class="n">30</span> صفحة</li>
+          <li>معالجة <span class="n">33</span> صورة عبوة واستخراج الهوية البصرية</li>
+          <li>نشر بحاوية Docker وشهادة SSL على خادم الشركة</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">02</span><h2>الباقات</h2></div>
+    <p class="sec__lead">الباقات تراكمية: كل باقة تشمل ما قبلها بالكامل وتُبنى فوق نفس البنية بلا إعادة عمل. الانتقال من باقة إلى أعلى منها لاحقاً يكلّف فارق السعر فقط.</p>
+    <div class="pkgs">
+<article class="pcard">
+  
+  <header class="pcard__head">
+    <h3>باقة الإطلاق</h3>
+    <p class="pcard__tag">تحويل الموقع القائم من كتالوج إلكتروني إلى نظام تجاري حقيقي يديره فريقكم بنفسه — 83 يوم عمل موثّقة بالبنود</p>
+  </header>
+  <div class="pcard__price">
+    <div class="pcard__figure"><span class="n">623,000</span><span class="cur">ج.م</span></div>
+    <dl class="pcard__meta">
+      <div><dt>ض.ق.م <span class="n">14</span>%</dt><dd><span class="n">87,220</span></dd></div>
+      <div class="is-total"><dt>الإجمالي شاملاً الضريبة</dt><dd><span class="n">710,220</span></dd></div>
+    </dl>
+  </div>
+  <ul class="pcard__facts">
+    <li><span>مدة التنفيذ</span><b><span class="n">13</span> أسبوع</b></li>
+    <li><span>أيام العمل</span><b><span class="n">83</span> يوم</b></li>
+    <li><span>عدد البنود</span><b><span class="n">32</span> بند</b></li>
+  </ul>
+  <div class="pcard__for"><span>لمن تناسب</span><p>الإدارة التي تريد إثبات الجدوى أولاً بأقل رأس مال: أن يمتلك فريقها الكتالوج والأسعار بيده، وأن يصل كل طلب عرض سعر إلى المبيعات ويُسجَّل ويُقاس — قبل الالتزام بميزانية منصة بيع كاملة. كل جنيه فيها استثمار في نفس البنية التي تُبنى فوقها الباقتان الأعلى بلا أي إعادة عمل.</p></div>
+  <details class="pcard__det" >
+    <summary>ما تشمله الباقة (<span class="n">22</span>)</summary>
+    <ul class="tick"><li>لوحة تحكم عربية RTL كاملة مبنية على Payload CMS داخل نفس تطبيق Next.js القائم — بلا خدمة ثانية ولا حاوية إضافية</li><li>قاعدة بيانات PostgreSQL على سيرفر الشركة + ترحيل الـ43 منتجاً والخامات العشر و33 صورة عبوة من الكود إلى قاعدة البيانات</li><li>إضافة وتعديل وحذف المنتجات والأقسام بأيدي فريقكم: محرّر جداول التركيب، المميزات، معدلات الاستخدام، العبوات، رفع الصور، الترتيب، الإخفاء، تحديد المميز</li><li>إدارة الأسعار وقوائم الأسعار (تجزئة/جملة) وشرائح الكمية، مع معاملة ضريبية قابلة للتهيئة لكل صنف (خاضع 14% / صفري / معفى) وخيار «السعر عند الطلب»</li><li>طبقة خادم كاملة (API) بتحقق مدخلات ومعالجة أخطاء وتحديد معدل طلبات وتسجيل عمليات</li><li>نقل سلة طلب عرض السعر من متصفح الزائر إلى الخادم بجلسة مجهولة + رصد السلال المتروكة كمؤشر في لوحة التحكم</li><li>شاشة استقبال طلبات عروض الأسعار + تحويلها لعرض سعر رسمي + توليد PDF عربي بترويسة الشركة وإرساله</li><li>ربط الموقع بنظام CRM جاهز على الطبقة المجانية (HubSpot أو Zoho أو Bitrix24) عبر نقطة /api/leads مع نسخة احتياطية محلية لكل عميل محتمل</li><li>إشعار فوري لفريق المبيعات على البريد والواتساب فور وصول أي طلب</li><li>أدوار وصلاحيات وسجل تدقيق لكل تعديل على الأسعار</li><li>كتابة نصوص الواجهة والرسائل التشغيلية بالعربية (رسائل البريد، قالب عرض السعر، صفحات الأخطاء، رسائل التحقق)</li><li>حزمة SEO التقنية كاملة (sitemap، robots، JSON-LD لكل منتج، OpenGraph، favicon) + Google Analytics 4 و GTM وبكسل ميتا</li><li>بحث عربي ذكي يتحمل أ/إ/آ وة/ه وى/ي والأخطاء الإملائية، وصفحات 404/500 بهوية الشركة</li><li>تأمين التطبيق، نسخ احتياطي يومي خارج السيرفر باختبار استرجاع، مراقبة توفر وتنبيهات فورية</li><li>اختبارات آلية للمسار الحرج (حتى 20 اختبار وحدة على التسعير والضريبة + مسار E2E واحد)</li><li>خط نشر آلي CI/CD وبيئة تجريبية staging ونشر بدون انقطاع بدل السكربت اليدوي الحالي</li><li>الصفحات القانونية والامتثال لقانون حماية البيانات المصري 151/2018</li><li>نقل الموقع إلى الدومين الرسمي باسم الشركة + بريد أعمال + ضبط SPF/DKIM/DMARC</li><li>زيارتان ميدانيتان (المقر بالغردقة والمصنع بالمنيا الجديدة) شاملة الانتقال والإقامة</li><li>جلسة تدريب عملية + دليل استخدام عربي مصوّر + توثيق فني وتسليم كامل</li><li>إدارة مشروع فعلية 7 أيام (10.1% من أيام الباقة) واجتماع أسبوعي بمحضر</li><li>ضمان 3 شهور إصلاح أعطال مجاني</li></ul>
+  </details>
+  <details class="pcard__det pcard__det--x">
+    <summary>ما لا تشمله (<span class="n">17</span>)</summary>
+    <ul class="cross"><li>حسابات العملاء والتسجيل والدخول (الموقع يظل مجهولاً — الطلب يُرسل ببيانات النموذج)</li><li>تدفق إتمام الشراء (Checkout) وأي مسار بيع مباشر</li><li>بوابة الدفع الإلكتروني وأي وسيلة سداد أونلاين</li><li>إدارة المخزون والمستودعات</li><li>الشحن ومناطق التسليم واحتساب التكلفة بالوزن</li><li>اعتماد حسابات الموزعين B2B والتسعير التلقائي حسب فئة العميل — لذلك تُبنى قائمتا الأسعار (تجزئة/جملة) في قاعدة البيانات لاستخدامهما في عروض الأسعار اليدوية فقط، وعرضهما التلقائي للعميل يتطلب باقة النمو</li><li>نظام Odoo CRM المستضاف ذاتياً وطبقة المزامنة (يُستخدم بدلاً منه CRM جاهز على طبقته المجانية) — متاح كإضافة بـ152,500 ج</li><li>تصميم شاشات مخصص للوحة التحكم: تُسلَّم بواجهة Payload القياسية معرَّبة ومضبوطة RTL بألوان الشركة، دون تصميم UI/UX مخصص</li><li>إدخال الأسعار الفعلية للـ43 منتجاً: تُدخلها الشركة بنفسها عبر لوحة التحكم، أو نُدخلها نيابةً عنكم كإضافة بـ18,000 ج</li><li>التقارير ولوحة مؤشرات الإدارة</li><li>تطبيق الموبايل بكل صوره (PWA متاح كإضافة بـ45,000 ج، والمتاجر بـ75,000 ج فوقها)</li><li>الفاتورة الإلكترونية ETA</li><li>تعدد اللغات والنسخة الإنجليزية</li><li>مركز المستندات الفنية TDS/MSDS/CoA</li><li>حاسبة البرنامج السمادي وأدوات القيمة المضافة الزراعية</li><li>التصوير الاحترافي للمنتجات والمصنع</li><li>اختبار اختراق من جهة مستقلة</li></ul>
+  </details>
+</article>
+<article class="pcard pcard--rec">
+  <div class="pcard__flag">الباقة الموصى بها</div>
+  <header class="pcard__head">
+    <h3>باقة النمو</h3>
+    <p class="pcard__tag">منصة بيع B2B متكاملة على الويب: حسابات عملاء، مخزون وعروض أسعار رسمية داخل Odoo مملوك بالكامل برخصة صفر، شحن بالوزن، وإتمام طلب — وهي الباقة الموصى بها</p>
+  </header>
+  <div class="pcard__price">
+    <div class="pcard__figure"><span class="n">1,010,000</span><span class="cur">ج.م</span></div>
+    <dl class="pcard__meta">
+      <div><dt>ض.ق.م <span class="n">14</span>%</dt><dd><span class="n">141,400</span></dd></div>
+      <div class="is-total"><dt>الإجمالي شاملاً الضريبة</dt><dd><span class="n">1,151,400</span></dd></div>
+    </dl>
+  </div>
+  <ul class="pcard__facts">
+    <li><span>مدة التنفيذ</span><b><span class="n">22</span> أسبوع</b></li>
+    <li><span>أيام العمل</span><b><span class="n">139</span> يوم</b></li>
+    <li><span>عدد البنود</span><b><span class="n">48</span> بند</b></li>
+  </ul>
+  <div class="pcard__for"><span>لمن تناسب</span><p>الشركة التي قررت أن الموقع قناة بيع فعلية لا واجهة تعريفية: موزعون لهم حسابات وأسعار خاصة وحدود ائتمان، طلبات تُحجز من المخزون وتُشحن بالوزن، وفريق مبيعات يعمل على نظام CRM تملكه الشركة بلا اشتراك دولاري. هذه هي الباقة التي نوصي بها.</p></div>
+  <details class="pcard__det" open>
+    <summary>ما تشمله الباقة (<span class="n">19</span>)</summary>
+    <ul class="tick"><li>كل ما في باقة الإطلاق، مع ترقية الـCRM الجاهز المجاني إلى نظام Odoo Community كامل مملوك لكم (ترقية لا حذف)</li><li>تصميم تجربة استخدام (UI/UX) لكل الشاشات الجديدة بامتداد الهوية البصرية المستخرجة من كتالوج الشركة</li><li>نظام Odoo Community مستضافاً ذاتياً على سيرفر الشركة — رخصة صفر جنيه إلى الأبد، عربي RTL أصلي، CRM ومبيعات وعروض أسعار وجهات اتصال ومخزون، وفرق مبيعات مقسّمة بالمحافظات</li><li>طبقة مزامنة معلنة بين الموقع وأودو (منتجات، أسعار، مخزون، عملاء، طلبات) عبر XML-RPC بطابور وإعادة محاولة — مع تحديد صريح لمصدر الحقيقة: أودو للمخزون والعملاء وعروض الأسعار الرسمية وأوامر البيع، والموقع للمحتوى والكتالوج</li><li>حسابات العملاء: تسجيل ودخول آمن، صفحة الحساب، العناوين المحفوظة، سجل الطلبات وعروض الأسعار، وإعادة الطلب بضغطة</li><li>اعتماد حسابات B2B: رفع السجل التجاري والبطاقة الضريبية، مراجعة واعتماد يدوي، وربط الحساب المعتمد آلياً بقائمة أسعار الجملة وحد ائتماني — «صفة العميل» يصبح لها أثر تسعيري حقيقي</li><li>تدفق إتمام الطلب الكامل (Checkout): العنوان، طريقة الاستلام، طريقة السداد، مراجعة الطلب بالضريبة والشحن، تأكيد برقم مرجعي، وصفحة تتبع</li><li>الدفع عند الاستلام + التحويل البنكي وإنستاباي مع رفع إيصال التحويل ومراجعته واعتماده قبل الشحن</li><li>الشحن: 27 محافظة، احتساب التكلفة بالوزن الفعلي (25 و50 كجم والطن)، شريحة نقل ثقيل، وخيار الاستلام من مصنع المنيا الجديدة</li><li>المخزون على مستودعين (مصنع المنيا الجديدة + مقر الغردقة) داخل Odoo Inventory، وعرض حالة التوافر على صفحة المنتج بالمزامنة الحية</li><li>مركز المستندات الفنية لكل منتج (TDS / MSDS / شهادة التحليل / شهادة تسجيل وزارة الزراعة) مع تحكم في الإتاحة</li><li>تنفيذ حقوق أصحاب البيانات تقنياً (تصدير بيانات الحساب وحذفه) تنفيذاً فعلياً لقانون 151/2018 لا مجرد سياسة مكتوبة</li><li>التقارير ولوحة مؤشرات الإدارة (حتى 6 تقارير قياسية ولوحة واحدة) مع تصدير Excel و PDF</li><li>تطبيق ويب تقدمي (PWA): أيقونة على شاشة الهاتف، كتالوج يعمل بدون إنترنت في الأراضي الزراعية، تحديث لحظي بلا مراجعة متجر وبصفر رسوم</li><li>تحسين الظهور المحلي وبحث الكلمات المفتاحية العربية + Google Business Profile للمقر والمصنع</li><li>إدخال ومراجعة الأسعار النهائية للـ43 منتجاً بكل عبوة</li><li>اختبار موسّع على أجهزة أندرويد منخفضة الإمكانات + جلسات تدريب منفصلة للمبيعات والمخازن والإدارة مع فيديوهات تعليمية</li><li>إدارة مشروع 12 يوماً (8.6% من أيام الباقة) على 22 أسبوعاً</li><li>ضمان 3 شهور إصلاح أعطال مجاني بمتابعة استقرار موسّعة</li></ul>
+  </details>
+  <details class="pcard__det pcard__det--x">
+    <summary>ما لا تشمله (<span class="n">12</span>)</summary>
+    <ul class="cross"><li>بوابة الدفع الإلكتروني Paymob (متاحة كإضافة اختيارية بـ38,000 ج)</li><li>التكامل مع منظومة الفاتورة الإلكترونية ETA (متاح كإضافة بـ76,000 ج) — تنبيه صريح: النظام في هذه الباقة يُصدر عرض سعر وأمر بيع وفاتورة مبدئية Proforma، والفاتورة الضريبية النهائية تصدر من نظامكم المحاسبي القائم</li><li>تطبيق على App Store و Google Play (متاح كغلاف Capacitor بـ75,000 ج فوق الـPWA المضمّنة)</li><li>تعدد اللغات والنسخة الإنجليزية وترجمة محتوى المنتجات (متاح كإضافة بـ55,500 ج + أتعاب المترجم المتخصص)</li><li>واتساب بيزنس API الرسمي بقوالب معتمدة (المضمّن هو إشعار المبيعات والبريد فقط)</li><li>أدوات المندوب والمهندس الزراعي الميداني وتسجيل الزيارات بالموقع الجغرافي (إضافة بـ67,500 ج)</li><li>حاسبة البرنامج السمادي ومقارنة المنتجات وخريطة الموزعين (إضافة بـ37,500 ج)</li><li>التكامل مع الدورة المحاسبية أو نظام ERP</li><li>تحقق OTP على رقم الهاتف عند التسجيل (إضافة بـ15,000 ج)</li><li>المراجعة التحريرية والزراعية المعتمدة للمحتوى والتصوير الاحترافي</li><li>اختبار اختراق من جهة مستقلة</li><li>ترقية إصدار أودو الكبرى السنوية (تُسعَّر 30,000 ج لكل ترقية رئيسية)</li></ul>
+  </details>
+</article>
+<article class="pcard">
+  
+  <header class="pcard__head">
+    <h3>الباقة المتكاملة</h3>
+    <p class="pcard__tag">المنظومة الرقمية التجارية كاملة: بيع وتحصيل وفوترة إلكترونية وتطبيق على المتجرين ومبيعات ميدانية ونسخة إنجليزية — بشراكة تشغيل لا تسليمة</p>
+  </header>
+  <div class="pcard__price">
+    <div class="pcard__figure"><span class="n">1,605,000</span><span class="cur">ج.م</span></div>
+    <dl class="pcard__meta">
+      <div><dt>ض.ق.م <span class="n">14</span>%</dt><dd><span class="n">224,700</span></dd></div>
+      <div class="is-total"><dt>الإجمالي شاملاً الضريبة</dt><dd><span class="n">1,829,700</span></dd></div>
+    </dl>
+  </div>
+  <ul class="pcard__facts">
+    <li><span>مدة التنفيذ</span><b><span class="n">34</span> أسبوع</b></li>
+    <li><span>أيام العمل</span><b><span class="n">221</span> يوم</b></li>
+    <li><span>عدد البنود</span><b><span class="n">70</span> بند</b></li>
+  </ul>
+  <div class="pcard__for"><span>لمن تناسب</span><p>الإدارة التي تتعامل مع المشروع كأصل رقمي طويل الأمد لا كمصروف: بيع وتحصيل وفوترة ضريبية قانونية، مندوبون ميدانيون بأدوات رقمية، ملف تصدير بواجهة إنجليزية — مع شريك تقني ملتزم بـSLA وضمان ستة شهور.</p></div>
+  <details class="pcard__det" >
+    <summary>ما تشمله الباقة (<span class="n">16</span>)</summary>
+    <ul class="tick"><li>كل ما في باقتي الإطلاق والنمو دون استثناء</li><li>بوابة الدفع المصرية Paymob: بطاقات ائتمانية وميزة، محافظ فودافون كاش وإتصالات كاش، أكواد فوري المرجعية، 3D Secure، Webhooks، تسوية واسترداد — مطبّقة على خط العبوات الصغيرة بسقف قيمة للطلب</li><li>التكامل مع منظومة الفاتورة الإلكترونية ETA بالاستفادة من وحدة التوطين المصري في أودو: الختم الإلكتروني، إرسال الفواتير واستقبال الـUUID، ترميز الأصناف GS1/EGS للـ43 منتجاً بمعاملة ضريبية لكل صنف، الفواتير المبدئية والإشعارات الدائنة، وتقارير التسوية</li><li>تطبيق على App Store و Google Play باسم الشركة وأيقونتها (غلاف Capacitor فوق نفس قاعدة الكود — بلا ازدواج صيانة) مع إشعارات Push حقيقية عبر FCM و APNs، ويشمل حتى دورتي رد على رفض لكل متجر</li><li>أدوات المندوب والمهندس الزراعي الميداني: أخذ الطلبات من الحقل، تسجيل الزيارة بالموقع الجغرافي، تقرير زيارة عربي يعمل بشبكة ضعيفة ثم يزامن، وإدارة المناطق والحصص</li><li>واتساب بيزنس API الرسمي بقوالب معتمدة: إرسال عروض الأسعار، تحديثات حالة الطلب والشحنة، وتذكير ببرامج التسميد الموسمية</li><li>تعدد اللغات عربي/إنجليزي كاملاً (next-intl مع تبديل RTL/LTR) + دمج ومراجعة ترجمة محتوى الـ43 منتجاً وصفحات الشركة (أتعاب المترجم الفني المتخصص تُمرَّر بالتكلفة ومستثناة)</li><li>حاسبة البرنامج السمادي حسب المحصول والمساحة ومرحلة النمو (تُخرج توصية قابلة للإضافة مباشرة لطلب عرض السعر) + مقارنة المنتجات + خريطة الموزعين</li><li>دراسة قابلية الربط بالدورة المحاسبية / ERP بمخرج موثّق يحدد المسار والتكلفة قبل الالتزام بها</li><li>تحقق OTP على رقم الهاتف عند التسجيل (الأنسب للسوق المصري)</li><li>تشديد أمني لبيئة الدفع ومراجعة داخلية موثّقة لثغرات OWASP Top 10، وتشفير بيانات العملاء الحساسة</li><li>توسيع تغطية الاختبارات الآلية لتشمل الدفع والفوترة، واختبار بيئة Sandbox واختبار حمل بهدف معلن 200 مستخدم متزامن</li><li>تتبع التحويلات من جانب الخادم (Conversions API) لتجاوز حجب المتصفحات</li><li>المراجعة التحريرية والزراعية المعتمدة لكل المحتوى وعرض أرقام تسجيل وزارة الزراعة</li><li>زيارة ميدانية ثالثة + تدريب وتوثيق موسّع للدفع والفوترة وأدوات المندوب والنسخة الإنجليزية</li><li>ضمان 6 شهور (ضعف العرف السائد) مع SLA: 4 ساعات استجابة للأعطال الحرجة و24 ساعة للعادية</li></ul>
+  </details>
+  <details class="pcard__det pcard__det--x">
+    <summary>ما لا تشمله (<span class="n">10</span>)</summary>
+    <ul class="cross"><li>تطبيق موبايل أصلي بقاعدة كود منفصلة (React Native / Flutter) — متاح كإضافة بـ262,500 ج، ونوصي بتأجيله حتى يثبت التطبيق الحالي حاجته</li><li>تنفيذ التكامل الفعلي مع النظام المحاسبي / ERP بعد الدراسة — يُسعَّر بعد مخرج الدراسة ضمن نطاق معلن 60,000–140,000 ج</li><li>التصوير الاحترافي للمنتجات والمصنع (متاح كإضافة إدارة وتنسيق بـ15,000 ج + أتعاب المصور تُمرَّر بالتكلفة)</li><li>اختبار اختراق من جهة مستقلة — نرشّح الجهة وتتعاقد الشركة معها مباشرة، والتكلفة التقديرية 60,000–90,000 ج</li><li>أتعاب الترجمة الفنية الزراعية من مترجم متخصص — تُقدَّر بعد جرد الكلمات (18,000–28,000 ج) وتُسدَّد من الشركة مباشرة</li><li>بوابة موزعين مستقلة بواجهة منفصلة</li><li>تكامل شركة شحن خارجية (بوسطة/أرامكس/ميلرز) — متاح كإضافة بـ22,500 ج</li><li>إدارة الحملات الإعلانية وميزانياتها وإنتاج محتوى المدونة الدوري</li><li>رخص واشتراكات الأطراف الثالثة (Apple، Google، ETA، واتساب، Cloudflare) — تُسدَّد من الشركة مباشرة لمصدرها</li><li>الاستشارة القانونية لاعتماد صيغة السياسات من محامٍ (نُعدّ الصياغة وتُعتمد من مستشاركم)</li></ul>
+  </details>
+</article></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">03</span><h2>كيف حُسِب كل رقم</h2></div>
+    <p class="sec__lead">لا يوجد رقم واحد في هذا العرض خارج هذه القاعدة: قيمة أي بند = عدد أيام عمله × سعر اليوم لفئته. الجدول معلن حتى تتمكنوا من مراجعة أي بند بأنفسكم، ولأن أوامر التغيير أثناء التنفيذ تُسعَّر بنفس هذا الجدول لا بسعر منفصل.</p>
+    <div class="rates">
+      <div class="rate">
+        <b><span class="n">6,000</span><span class="cur">ج/يوم</span></b>
+        <strong>إدخال بيانات ومحتوى ومهام ميدانية</strong>
+        <p>إدخال الأسعار والمنتجات، المراجعة التحريرية، الزيارات الميدانية والتدريب بالموقع.</p>
+      </div>
+      <div class="rate">
+        <b><span class="n">7,500</span><span class="cur">ج/يوم</span></b>
+        <strong>تطوير وتصميم وإدارة مشروع</strong>
+        <p>بناء الواجهات والباك إند ولوحة التحكم، تصميم تجربة الاستخدام، وإدارة المشروع.</p>
+      </div>
+      <div class="rate">
+        <b><span class="n">9,500</span><span class="cur">ج/يوم</span></b>
+        <strong>أعمال تخصصية</strong>
+        <p>معمارية البيانات، DevOps، الأمان، بوابات الدفع، الفوترة الإلكترونية، وتكامل الأنظمة.</p>
+      </div>
+    </div>
+    <p class="formula">
+      مثال للتحقق: بند «تركيب Payload CMS و PostgreSQL وبناء طبقة الـAPI» =
+      <code><span class="n">6</span> أيام × <span class="n">9,500</span> = <span class="n">57,000</span> ج</code>
+      — وهو بند تخصصي. وسعر البيع الفعلي بعد خصم الباقة:
+      باقة الإطلاق <span class="n">7,506</span> ج/يوم، النمو <span class="n">7,266</span>، المتكاملة <span class="n">7,262</span>.
+    </p>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">04</span><h2>البنود التفصيلية</h2></div>
+    <p class="sec__lead"><span class="n">72</span> بنداً بإجمالي <span class="n">228</span> يوم عمل، موزّعة على <span class="n">10</span> مراحل. تشير الوسوم إلى الباقة التي يندرج تحتها كل بند.</p>
+    
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">صفر</span>التأسيس والمعمارية</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>ورشة تثبيت النطاق وتصميم مخطط قاعدة البيانات</b><p>جلسات عمل مع الإدارة والمبيعات والمخازن لتوثيق دورة البيع الفعلية، ثم تصميم مخطط البيانات الكامل وتحديد مصدر الحقيقة لكل كيان بين الموقع وأودو. المخرج وثيقة نطاق موقّعة تُعتمد كمرجع تعاقدي قبل كتابة أي سطر كود. التسعير: 3 أيام × 9,500 ج (فئة تخصصي — معمارية بيانات) = 28,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">28,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>إعداد البيئات وخط النشر الآلي والبيئة التجريبية</b><p>مستودع GitHub باسم الشركة، بيئة staging منفصلة بقاعدة بيانات مستقلة وإجراء موثّق لتحديث بياناتها من الإنتاج، GitHub Actions للبناء والفحص وتشغيل الاختبارات قبل كل نشر، إدارة الأسرار، ونشر بدون انقطاع مع تراجع سريع — بدل سكربت deploy.sh اليدوي الحالي. التسعير: 2 × 9,500 (تخصصي — DevOps) = 19,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">19,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>الدومين الرسمي والبريد وضبط DNS</b><p>نقل الموقع من الدومين التجريبي arg.aligm.cloud (وهو ملك المطوّر) إلى agromeed.com المسجَّل باسم الشركة، ضمن نافذة انتقال خارج ساعات العمل أقصاها ساعتان مع إبقاء النطاق التجريبي عاملاً 30 يوماً كخطة تراجع، وإعداد بريد الأعمال وضبط SPF و DKIM و DMARC. التسعير: 1 × 7,500 (تطوير عام) = 7,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">1</span></td>
+        <td class="c-num c-money"><span class="n">7,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تصميم تجربة الاستخدام للشاشات الجديدة (UI/UX)</b><p>تصميم الشاشات غير الموجودة فقط: إتمام الطلب، صفحات الحساب وسجل الطلبات، شاشات لوحة التحكم العربية RTL، وشاشات الموبايل. الهوية البصرية مستخرجة ومطبّقة بالفعل في النموذج المسلَّم. التسعير: 4 × 7,500 = 30,000 ج. غير مشمول في باقة الإطلاق التي تُسلَّم بواجهة Payload القياسية معرَّبة.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">4</span></td>
+        <td class="c-num c-money"><span class="n">30,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>كتابة نصوص الواجهة والرسائل التشغيلية (UX writing)</b><p>كان العرض السابق يبيع هذه الشاشات دون تسعير نصوصها. التسعير: 2 × 6,000 (فئة محتوى) = 12,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">12,000</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة صفر</td><td class="c-num"><span class="n">12</span></td><td class="c-num c-money"><span class="n">97,000</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">1</span>الباك إند وقاعدة البيانات ولوحة التحكم</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>تركيب Payload CMS و PostgreSQL وبناء طبقة الـAPI</b><p>تركيب Payload 3 داخل نفس مشروع Next.js القائم فوق PostgreSQL على سيرفر Coolify الذي تملكه الشركة، وتعريف كل المجموعات بالكود TypeScript على مقاس بيانات الأسمدة، مع طبقة API/Server Actions وتحقق مدخلات بـZod ومعالجة أخطاء موحّدة برسائل عربية وتحديد معدل طلبات. تم التحقق: المشروع اليوم صفر ملف route.ts وصفر «use server» وصفر نداء fetch. التسعير: 6 × 9,500 (تخصصي — معمارية) = 57,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">6</span></td>
+        <td class="c-num c-money"><span class="n">57,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>ترحيل 43 منتجاً و10 خامات و33 صورة إلى قاعدة البيانات</b><p>نقل 1,146 سطر بيانات من src/lib/products.ts إلى قاعدة البيانات: 220 صف تركيب كيميائي، 219 نقطة مميزات، 43 مصفوفة عبوات، 15 تركيبة NPK، معدلات الرش والتسميد، والخامات العشر — بسكربت ترحيل قابل لإعادة التشغيل وتقرير تحقق. يشمل حتى 43 منتجاً و10 خامات بالبيانات الموجودة حالياً؛ كل منتج إضافي يُدخل بمعرفتنا 400 ج. التسعير: 3 × 6,000 (فئة بيانات ومحتوى) = 18,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">18,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تعريب لوحة التحكم RTL والأدوار والصلاحيات وسجل التدقيق</b><p>تعريب واجهة الإدارة بالكامل وضبطها RTL بألوان الشركة، ومصادقة الموظفين، وأدوار (مدير نظام، مبيعات، مخازن، محتوى) بصلاحيات دقيقة، وسجل تدقيق غير قابل للتعديل لكل تغيير حسّاس على الأسعار. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>شاشات إدارة المنتجات والأقسام</b><p>تنفيذ طلب العميل الصريح «سأضيف منتجات لاحقاً» بيده لا بيد المطوّر: إضافة وتعديل وحذف منتج، محرّر ديناميكي لجداول التركيب، إدارة المميزات ومعدلات الاستخدام والعبوات، رفع الصور والمستندات، الترتيب، التفعيل والإخفاء، المنتجات المميزة، وإدارة الأقسام. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>إدارة الأسعار وقوائم الأسعار والمعاملة الضريبية لكل صنف</b><p>سعر لكل عبوة/SKU، شرائح حسب الكمية، قائمتا أسعار (تجزئة وجملة) قابلتان للتوسع، خصومات بتاريخ سريان وسجل تغيّر، وخيار «السعر عند الطلب». في باقة الإطلاق تُبنى قائمتا الأسعار للاستخدام في عروض الأسعار اليدوية فقط، وعرضها التلقائي حسب فئة العميل يتطلب حسابات العملاء واعتماد B2B في باقة النمو. تم التحقق: 43 من 43 منتجاً بـ price: null اليوم. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>مكتبة الوسائط ومعالجة الصور</b><p>تخزين كائني لصور المنتجات والمستندات، رفع بالسحب والإفلات، توليد أحجام متعددة تلقائياً، تحويل إلى WebP و AVIF، وضبط التخزين المؤقت وشبكة توصيل محتوى Cloudflare على طبقتها المجانية (صفر تكلفة). اليوم الصور الـ33 ملفات ثابتة داخل public تُبنى مع صورة Docker. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>ربط الواجهة المبنية بقاعدة البيانات</b><p>تحويل الصفحات السبع و43 صفحة المنتج ومحرك البحث والتصفية من القراءة من ملف ثابت إلى القراءة من قاعدة البيانات مع تجديد تدريجي (ISR) للحفاظ على نفس سرعة الصفحات الحالية. الواجهة المسلَّمة لا يُعاد كتابتها. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>التقارير ولوحة مؤشرات الإدارة الموحّدة</b><p>لوحة مؤشرات تنفيذية تجمع بيانات الموقع وأودو في مكان واحد (طلبات اليوم والشهر، قيمة خط الأنابيب، معدل تحويل الطلبات)، وتقارير المبيعات والعملاء والمنتجات الأكثر طلباً والمناطق الأنشط، بتصدير Excel و PDF. سقف معلن: حتى 6 تقارير قياسية ولوحة واحدة؛ التقرير الإضافي 4,000 ج. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 1</td><td class="c-num"><span class="n">24</span></td><td class="c-num c-money"><span class="n">187,500</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">2</span>مسار الطلب وعروض الأسعار</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>نقل سلة عرض السعر إلى الخادم</b><p>إخراج السلة من localStorage (المفتاح agromeed.quote.v1 الذي يضيع بمسح المتصفح) إلى قاعدة البيانات. في باقة الإطلاق: سلة خادمية بجلسة مجهولة (cookie) مع رصد السلال المتروكة كمؤشر إحصائي في لوحة التحكم فقط — لأن المتابعة البيعية للسلة المتروكة تستلزم بيانات تواصل أي حسابات عملاء. في النمو والمتكاملة تُربط السلة بحساب العميل وتتزامن عبر الأجهزة وتتحول السلال المتروكة إلى قائمة متابعة للمندوب. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>إدارة طلبات RFQ وعروض الأسعار وتوليد PDF عربي داخل الموقع</b><p>صندوق وارد لطلبات عروض الأسعار، تحويل الطلب لعرض سعر رسمي بتسعير سطري وضريبة، توليد PDF عربي RTL بترويسة الشركة وبياناتها الضريبية، إرساله بالبريد والواتساب، وتتبع الحالة. التسعير: 4 × 7,500 = 30,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip">نمو</i><i class="chip">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">4</span></td>
+        <td class="c-num c-money"><span class="n">30,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>حسابات العملاء والمصادقة</b><p>تسجيل ودخول آمن، استعادة كلمة المرور، جلسات محمية، صفحة الحساب، العناوين المحفوظة، سجل الطلبات وعروض الأسعار، وإعادة الطلب بضغطة — أهم ميزة لعميل أسمدة يعيد شراء نفس التركيبة كل موسم. الموقع اليوم مجهول بالكامل. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>اعتماد حسابات B2B والتسعير حسب فئة العميل</b><p>تدفق تسجيل الموزعين والمصانع برفع السجل التجاري والبطاقة الضريبية، شاشة مراجعة واعتماد يدوي، وربط الحساب المعتمد تلقائياً بقائمة أسعار الجملة وحد ائتماني ومدة سداد. حقل «صفة العميل» الموجود اليوم كنص بلا أثر يصبح المحرّك الذي يحدد ما يراه كل عميل. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تدفق إتمام الطلب الكامل (Checkout)</b><p>اختيار العنوان، طريقة الشحن أو الاستلام، طريقة السداد، مراجعة الطلب بالضريبة والشحن، صفحة تأكيد برقم مرجعي، وصفحة تتبع. مصمم ليخدم المسارين: شراء مباشر للعبوات الصغيرة، وتحويل عرض سعر مقبول إلى أمر توريد للجملة. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>الشحن ومناطق التسليم بالوزن</b><p>مناطق شحن لـ27 محافظة، احتساب التكلفة بالوزن الفعلي (عبوات 25 و50 كجم والطن)، شريحة نقل ثقيل بعرض سعر يدوي، خيار الاستلام من مصنع المنيا الجديدة، وجدولة التسليم وإثبات الاستلام. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>مركز المستندات الفنية للمنتجات (TDS / MSDS / CoA)</b><p>رفع وعرض وتنزيل نشرة البيانات الفنية وصحيفة السلامة وشهادة التحليل وشهادة تسجيل وزارة الزراعة لكل منتج، مع تحكم في الإتاحة (عام أو للحسابات المعتمدة فقط). الموقع يعد اليوم بـ«شهادة تحليل معتمدة لكل شحنة» بلا آلية لعرضها. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تنفيذ حقوق أصحاب البيانات تقنياً (تصدير وحذف)</b><p>البند القانوني وحده يكتب السياسة ولا يبني الآلية. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تحقق OTP على رقم الهاتف</b><p>تحقق برمز يُرسل على الهاتف عند التسجيل وعند العمليات الحساسة — الأنسب للسوق المصري حيث البريد قناة ثانوية لدى المزارعين والموزعين. يستلزم رصيد رسائل شهرياً على الشركة. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>البحث العربي الذكي وإمكانية الوصول</b><p>تطبيع البحث العربي (أ/إ/آ/ا، ة/ه، ى/ي، حذف التشكيل) وبحث ضبابي يتحمل الأخطاء وترتيب بالأهمية. البحث الحالي يستخدم includes الحرفي فلا يجد «اكسترا» عند كتابة «إكسترا». يشمل مراجعة إمكانية الوصول: تنقّل بلوحة المفاتيح، حصر التركيز، ووسوم aria. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>صفحات الأخطاء وحالات التحميل</b><p>صفحتا 404 و500 مخصصتان بهوية الشركة وبالعربية، هياكل تحميل للشاشات الثقيلة، وحدود أخطاء تمنع انهيار الصفحة كاملة. تم التحقق: لا يوجد error.tsx ولا not-found.tsx ولا loading.tsx فيظهر شكل Next.js الافتراضي بالإنجليزية. التسعير: 1 × 7,500 = 7,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">1</span></td>
+        <td class="c-num c-money"><span class="n">7,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>أدوات القيمة المضافة الزراعية (حاسبة البرنامج السمادي)</b><p>حاسبة حسب المحصول والمساحة ومرحلة النمو تُخرج قائمة منتجات وكميات قابلة للإضافة مباشرة إلى طلب عرض السعر، مقارنة بين منتجين أو ثلاثة، ودليل «أين تشتري» بخريطة الموزعين. ملاحظة نطاق صريحة: القواعد الزراعية (المحاصيل والجرعات ومراحل النمو) يوردها مهندس أجروميد الزراعي على النموذج الذي نسلّمه في الأسبوع الثاني، وتتوقف المدة عند تأخرها. التسعير: 5 × 7,500 = 37,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">5</span></td>
+        <td class="c-num c-money"><span class="n">37,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تعدد اللغات عربي/إنجليزي (i18n)</b><p>إطار next-intl كامل، توجيه حسب اللغة، تبديل RTL/LTR سليم، واستخراج كل النصوص من 25 ملفاً مصدرياً إلى ملفات ترجمة. إضافته لاحقاً بعد اكتمال النظام تكلف نحو ثلاثة أضعاف بنائه الآن. التسعير: 5 × 7,500 = 37,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">5</span></td>
+        <td class="c-num c-money"><span class="n">37,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>دمج ومراجعة ترجمة محتوى الـ43 منتجاً وصفحات الشركة</b><p>الآن يشمل هذا البند تعبئة الترجمة في ملفات النظام ومراجعة الاتساق والمصطلحات وضبط الاتجاه — أما أتعاب المترجم الفني المتخصص (18,000–28,000 ج) فتُسدَّد من الشركة مباشرة للمترجم وهي في قائمة الاستثناءات، لأن مطوّراً يترجم chelated و suspension و foliar و K₂O ينتج إنجليزية خاطئة على ملف موجّه لموردين أجانب. التسعير: 3 × 6,000 = 18,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">18,000</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 2</td><td class="c-num"><span class="n">39</span></td><td class="c-num c-money"><span class="n">288,000</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">3</span>نظام CRM والتواصل</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>نقطة /api/leads وصندوق وارد الطلبات</b><p>نقطة نهاية تستقبل حمولة نموذج LeadForm الحالية كما هي: تحقق مدخلات + حقل فخ honeypot + تحديد معدل الطلبات + حفظ نسخة في قاعدة بيانات الشركة كضمان + طابور إعادة محاولة آلي عند تعطّل الوجهة + شاشة متابعة حالة الإرسال. التعديل داخل الموقع سطر واحد: استبدال console.info في LeadForm.tsx سطر 31. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>ربط CRM جاهز على الطبقة المجانية وتهيئة خط المبيعات</b><p>ربط النظام بـCRM جاهز مجاني (HubSpot Free أو Zoho أو Bitrix24) عبر Webhook: مراحل خط البيع، توزيع العملاء المحتملين على المندوبين حسب المحافظة، حقول مخصصة، ومهام متابعة. الطبقة محايدة تجاه المورّد. مقصور على باقة الإطلاق ويُستبدل في النمو والمتكاملة بنظام Odoo Community الكامل — أي أن النمو ترقية لا إضافة. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip">نمو</i><i class="chip">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تنصيب وتهيئة Odoo Community كاملاً (CRM + مبيعات + عروض أسعار + جهات اتصال + مخزون)</b><p>الرقم السابق كان 45–62% تحت أرخص سعر سوقي منشور (شركاء أودو المصريون: 125,000–180,000 ج لتنفيذ شركة صغيرة)، وكان سيُكتشف فور استشارة العميل لأي شريك أودو معتمد. يشمل: تشغيل Odoo 18/19 Community كحاوية Docker على نفس سيرفر Coolify خلف Traefik برخصة صفر إلى الأبد، مسارات بيع حسب صفة العميل، فرق مبيعات مقسّمة بالمحافظات، تخصيص قوالب QWeb عربية RTL لعروض الأسعار، استيراد الكتالوج بقوائم أسعار متعددة، ووحدة المخزون على مستودعين. قيود النطاق المعلنة: الوحدات المذكورة فقط، بلا تطوير وحدات Python/XML مخصصة، وحتى 3 قوالب طباعة عربية، وبلا محاسبة أو تصنيع أو رواتب أو شركات متعددة — وهذا ما يفسر كوننا أقل من 125,000 ج دون استهانة بالعمل. التسعير: 14 × 7,500 = 105,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">14</span></td>
+        <td class="c-num c-money"><span class="n">105,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>طبقة مزامنة الموقع ↔ أودو (منتجات، أسعار، مخزون، عملاء، طلبات)</b><p>الآن: أودو مصدر الحقيقة للمخزون والعملاء وعروض الأسعار الرسمية وأوامر البيع، والموقع مصدر الحقيقة للمحتوى والكتالوج، وبينهما طبقة مزامنة عبر XML-RPC بطابور وإعادة محاولة وسجل تعارضات. مُموَّلة بحذف بندي المخزون وعروض الأسعار المكررين في Payload من باقتي النمو والمتكاملة. التسعير: 5 × 9,500 (تخصصي — تكامل أنظمة) = 47,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">5</span></td>
+        <td class="c-num c-money"><span class="n">47,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>إشعارات البريد التشغيلية وتنبيه واتساب لفريق المبيعات</b><p>تنبيه فوري لفريق المبيعات على البريد والواتساب فور وصول طلب عرض سعر، ورسائل بريد تلقائية للعميل (استلام الطلب، إرسال عرض السعر، تغيّر الحالة). الموجود اليوم زر واتساب عائم من 16 سطراً يفتح wa.me برسالة ثابتة. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>واتساب بيزنس API الرسمي بقوالب معتمدة</b><p>تكامل WhatsApp Business API الرسمي: إرسال عرض السعر PDF، تحديثات حالة الطلب والشحنة، تذكير ببرامج التسميد الموسمية، ورد آلي خارج ساعات العمل. تنبيه تشغيلي مضاف: يتطلب تحقق أعمال من ميتا (2–4 أسابيع، على الشركة) واعتماد القوالب، ورقماً مخصصاً غير مستخدم على تطبيق واتساب العادي — أي لا يُستخدم رقم المبيعات الحالي لأنه سيفقد التطبيق العادي. المسار الحرج هنا تنظيمي لا برمجي. التسعير: 3 × 9,500 (تخصصي — تكامل خارجي) = 28,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">28,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>أدوات المندوب والمهندس الزراعي الميداني</b><p>تُبنى فوق أودو لا بديلاً عنه. التسعير: 9 × 7,500 = 67,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">9</span></td>
+        <td class="c-num c-money"><span class="n">67,500</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 3</td><td class="c-num"><span class="n">39</span></td><td class="c-num c-money"><span class="n">308,500</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">4</span>الدفع والفوترة والتكاملات</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>الدفع عند الاستلام والتحويل البنكي وإنستاباي</b><p>مسار الدفع عند الاستلام مع تسوية التحصيل ومطابقة المندوب، ومسار التحويل البنكي وإنستاباي مع عرض بيانات الحساب ورفع إيصال التحويل ومراجعته واعتماده من المحاسبة قبل الشحن. هذا هو المسار السائد فعلياً في صفقات الأسمدة بالجملة — وليس البطاقة. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>بوابة الدفع المصرية Paymob</b><p>بطاقات ائتمانية وبطاقات ميزة، محافظ فودافون كاش وإتصالات كاش، أكواد فوري المرجعية، 3D Secure، Webhooks، تسوية المدفوعات، وإدارة الاسترداد — مطبّق على خط العبوات الصغيرة بسقف قيمة للطلب. صفر رسوم تأسيس وصفر اشتراك شهري؛ العمولة 2.75% + 3 ج لكل معاملة ناجحة وتُخصم من إيراد الشركة لا من هذا العرض. التسعير: 4 × 9,500 (تخصصي — دفع) = 38,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">4</span></td>
+        <td class="c-num c-money"><span class="n">38,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>التكامل مع منظومة الفاتورة الإلكترونية ETA</b><p>لا يشمل استخراج شهادة الختم ولا التسجيل في المنظومة ولا اعتماد المعاملة الضريبية لكل صنف (على الشركة ومستشارها الضريبي). التسعير: 8 × 9,500 (تخصصي — فوترة إلكترونية) = 76,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">8</span></td>
+        <td class="c-num c-money"><span class="n">76,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>دراسة قابلية الربط بالدورة المحاسبية / ERP</b><p>الآن: دراسة موثّقة بسعر ثابت تفحص واجهات النظام القائم وتحدد المسار (API مباشر أو وحدات أودو أو تصدير دوري متفق عليه) وتُخرج تقديراً ملزماً ضمن نطاق معلن 60,000–140,000 ج يُتعاقد عليه منفصلاً. التسعير: 2 × 9,500 = 19,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">19,000</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 4</td><td class="c-num"><span class="n">16</span></td><td class="c-num c-money"><span class="n">148,000</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">5</span>الموبايل والأداء</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>تحويل الموقع إلى تطبيق ويب تقدمي (PWA) يعمل دون اتصال</b><p>تحفظ مكتوب: إشعارات Web Push على iOS تعمل فقط بعد أن يثبّت المستخدم الموقع يدوياً على الشاشة الرئيسية — وهي خطوة يجهلها كثيرون، فلا نعد بتغطية إشعارات كاملة على iOS بلا تثبيت. التسعير: 6 × 7,500 = 45,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">6</span></td>
+        <td class="c-num c-money"><span class="n">45,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تحسين الأداء وضغط الوسائط للأجهزة الضعيفة</b><p>تحويل الأصول الحالية (3.7 ميجابايت صور JPG غير محسّنة تصل إلى 397KB للصورة) إلى WebP و AVIF بأحجام متجاوبة، تحميل كسول، وضبط Core Web Vitals. الهدف المعلن: LCP أقل من 2.5 ثانية على شبكة 4G. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>غلاف Capacitor والنشر على App Store و Google Play</b><p>يشمل حتى دورتي رد على رفض لكل متجر؛ ما زاد يُسعَّر 7,500 ج/يوم. مدة انتظار مراجعة المتاجر خارج أيام العمل ولا تدخل في الجدول الزمني، والرفض النهائي من متجر لا يُعد إخلالاً. التسعير: 10 × 7,500 = 75,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">10</span></td>
+        <td class="c-num c-money"><span class="n">75,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>الإشعارات الفورية Push والعمل دون اتصال المتقدم</b><p>إشعارات Push عبر FCM و APNs (حالة الطلب، دفعة إنتاج جديدة، تغيّر أسعار، عرض موسمي، تذكير ببرنامج التسميد)، وطابور مزامنة يرسل ما أُدخل أوفلاين فور عودة الشبكة. المستخدم النهائي مزارع أو مندوب بشبكة متقطعة. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 5</td><td class="c-num"><span class="n">20</span></td><td class="c-num c-money"><span class="n">150,000</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">6</span>الظهور والقياس والامتثال</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>أساسيات SEO التقنية</b><p>sitemap.xml و robots.txt ديناميكيان، بيانات منظمة JSON-LD (Organization, Product, BreadcrumbList, LocalBusiness) على الـ43 منتجاً، صور OpenGraph لكل صفحة، أيقونة الموقع وأيقونات الأجهزة، روابط canonical، وربط Google Search Console. تم التحقق: صفر إشارة JSON-LD ولا sitemap ولا robots ولا favicon اليوم. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تحسين الظهور المحلي وبحث الكلمات المفتاحية</b><p>بحث الكلمات المفتاحية العربية لقطاع الأسمدة وتحسين محتوى الصفحات عليها، وإنشاء وتوثيق Google Business Profile للمقر بالغردقة والمصنع بالمنيا الجديدة. التسعير: 2 × 6,000 (فئة محتوى) = 12,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">12,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>التحليلات وتتبع التحويلات</b><p>Google Analytics 4 عبر Google Tag Manager، بكسل ميتا وتيك توك، تتبع أحداث التحويل (إضافة لعرض السعر، إرسال طلب، تسجيل حساب، إتمام طلب)، وخرائط حرارية Microsoft Clarity. تم التحقق: صفر إشارة لأي أداة تحليل في المشروع اليوم. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تتبع التحويلات من جانب الخادم (CAPI)</b><p>إرسال أحداث التحويل من الخادم مباشرة إلى ميتا وجوجل لتجاوز حجب المتصفحات ومانعات الإعلانات. التسعير: 1 × 7,500 = 7,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">1</span></td>
+        <td class="c-num c-money"><span class="n">7,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>الصفحات القانونية والامتثال لقانون 151/2018</b><p>سياسة خصوصية متوافقة مع قانون حماية البيانات الشخصية المصري 151 لسنة 2018، إدارة الموافقات وتسجيلها، شروط الاستخدام وسياسة الاسترجاع، وصياغة ملحق اتفاقية معالجة البيانات (DPA) بيننا وبين الشركة. الموقع يجمع اليوم اسماً وهاتفاً وبريداً ومحافظة دون أي سياسة خصوصية — مخالفة قانونية قائمة الآن. تنبيه مضاف: دفع بيانات شخصية إلى CRM أجنبي (HubSpot/Zoho) يمثل نقلاً عبر الحدود يخضع للقانون، ولذلك نوفّر خيار التخزين المحلي فقط. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>المراجعة التحريرية والزراعية المعتمدة للمحتوى</b><p>مراجعة لغوية عربية احترافية لكل النصوص، تدقيق الأسماء الإنجليزية، مراجعة الادعاءات التسويقية والزراعية للتأكد من صحتها وقانونيتها، وعرض أرقام تسجيل الأسمدة لدى وزارة الزراعة على كل منتج. المحتوى الحالي منقول عن الكتالوج ولم يمر على مراجعة معتمدة. التسعير: 3 × 6,000 = 18,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">18,000</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 6</td><td class="c-num"><span class="n">13</span></td><td class="c-num c-money"><span class="n">90,000</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">7</span>الجودة والأمان والبنية</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>تأمين التطبيق</b><p>ترويسات أمان وسياسة CSP، حماية من CSRF و XSS وحقن SQL، تحديد معدل الطلبات وحماية من البوتات على نماذج الليدز والدخول، إدارة الأسرار خارج الكود، وتشفير بيانات العملاء الحساسة. الموقع الحالي ثابت بلا مدخلات خادم فلم يحتج شيئاً من هذا. التسعير: 2 × 9,500 (تخصصي — أمان) = 19,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">19,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تشديد أمني لبيئة الدفع ومراجعة داخلية موثّقة (OWASP Top 10)</b><p>الآن: جدار حماية تطبيقات (Cloudflare WAF)، تشديد صلاحيات الرفع، مراجعة داخلية موثّقة لثغرات OWASP Top 10، وتقرير معالجة. اختبار الاختراق من جهة مستقلة بند منفصل خارج العرض (60,000–90,000 ج تتعاقد عليه الشركة مباشرة بترشيحنا). التسعير: 2 × 9,500 = 19,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">19,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>اختبارات آلية للمسار الحرج</b><p>سقف معلن: حتى 20 اختبار وحدة (Vitest) على المنطق التجاري الحساس (التسعير، الشرائح، الضريبة) + مسار E2E واحد (تصفح ← إضافة للسلة ← إرسال طلب ← وصول الليد). تم التحقق: صفر ملف اختبار في المشروع اليوم. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>توسيع تغطية الاختبارات الآلية</b><p>اختبارات تكامل لطبقة الـAPI، واختبارات End-to-End لمسارات الدفع والفوترة الإلكترونية وحجز المخزون واحتساب الشحن بالوزن ومزامنة أودو — التغطية التي يفرضها نظام يتعامل مع مدفوعات وفواتير ضريبية. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>النسخ الاحتياطي والتعافي</b><p>نسخ احتياطي آلي يومي لقاعدة البيانات والوسائط مُخزَّن خارج السيرفر، لقطات أسبوعية، سياسة احتفاظ متدرجة، واختبار استرجاع فعلي موثّق بتقرير يُسلَّم للشركة. غير قابل للتفاوض بعد دخول قاعدة البيانات. التسعير: 2 × 9,500 (تخصصي — DevOps) = 19,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">19,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>المراقبة والتنبيهات</b><p>مراقبة توفر كل 5 دقائق مع تنبيه فوري على البريد والواتساب، تتبع أخطاء بـSentry، وتجميع سجلات. الخادم اليوم حاوية واحدة بلا أي مراقبة. التسعير: 1 × 9,500 = 9,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">1</span></td>
+        <td class="c-num c-money"><span class="n">9,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>النشر الإنتاجي واختبار القبول النهائي (UAT)</b><p>نشر الإنتاج مع فحوصات صحة، جلسات قبول مع فريق مبيعات ومخازن الشركة على بيئة staging ببيانات حقيقية، سياسة تجميد المحتوى قبل الإطلاق، جمع الملاحظات في سجل واحد ومعالجتها، ثم محضر اعتماد موقّع. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>اختبار قبول موسّع للباقة المتكاملة</b><p>الآن جلسات قبول إضافية على مسارات الدفع والفوترة وأدوات المندوب والنسخة الإنجليزية. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>اختبار الأجهزة والمتصفحات الموسّع</b><p>مصفوفة اختبار موثّقة ومحددة: Android 9 فأحدث، iOS 15 فأحدث، Chrome و Safari و Edge (آخر إصدارين) و Samsung Internet — مع تركيز على أجهزة أندرويد منخفضة الإمكانات وهي الشريحة الغالبة في السوق الزراعي. ما دون ذلك خارج النطاق. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>اختبار بيئة الدفع Sandbox واختبار الحمل</b><p>اختبار كل مسارات Paymob في بيئة Sandbox بما فيها الفشل والاسترداد والدفع الجزئي، اختبار إرسال الفواتير لبيئة ETA التجريبية، واختبار حمل بهدف معلن 200 مستخدم متزامن على الموارد المتفق عليها قبل مواسم الذروة. التسعير: 2 × 9,500 = 19,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">19,000</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 7</td><td class="c-num"><span class="n">21</span></td><td class="c-num c-money"><span class="n">175,500</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">8</span>البيانات والمحتوى</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>إدخال ومراجعة الأسعار النهائية وبيانات المنتجات</b><p>استلام الأسعار الفعلية للـ43 منتجاً بكل عبوة وشريحة وإدخالها ومراجعتها، حسم نسبة البورون في «جرومو فروتكس» (الكتالوج المطبوع يذكر 40% وهو رقم غير واقعي لسماد سائل، والمعروض حالياً 4% مؤقتاً)، واستبدال الخامات العشر المبدئية بقوائم الاستيراد الحقيقية بأرقام الأصناف والمناشئ. غير مشمول في باقة الإطلاق ومذكور صراحةً في استثناءاتها ومتاح كإضافة. التسعير: 3 × 6,000 = 18,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">18,000</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 8</td><td class="c-num"><span class="n">3</span></td><td class="c-num c-money"><span class="n">18,000</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+<section class="phase">
+  <h3 class="phase__h"><span class="phase__no">9</span>التسليم والتدريب والحوكمة</h3>
+  <div class="tblwrap">
+  <table class="tbl tbl--items">
+    <thead><tr><th>البند</th><th class="c-chip">الباقات</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="c-item"><b>الزيارات الميدانية (زيارتان: المقر بالغردقة والمصنع بالمنيا الجديدة)</b><p>يشمل زيارتين (يوم بكل موقع + يوم انتقال) شاملة تكاليف السفر والإقامة. الزيارة الإضافية 12,000 ج. باقي الجلسات عن بُعد. التسعير: 3 × 6,000 = 18,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">18,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>زيارة ميدانية ثالثة (الباقة المتكاملة)</b><p>زيارة إضافية تفرضها مكوّنات الباقة المتكاملة: تدريب فريق المخازن والمحاسبة على الفوترة الإلكترونية وتسوية الدفع، وتدريب المندوبين ميدانياً على أدوات الزيارات. التسعير: 2 × 6,000 = 12,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">12,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>التدريب ودليل الاستخدام العربي المصوّر</b><p>جلسة تدريب عملية على النظام الحي (إضافة منتج، تعديل سعر، تحويل طلب إلى عرض سعر، متابعة الليدز)، ودليل استخدام عربي مصوّر بلقطات شاشة لكل شاشة. بند غير قابل للحذف: لوحة تحكم لا يعرف الفريق استخدامها تعني عودة كل تعديل للمطوّر وفشل المشروع تشغيلياً. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>جلسات تدريب موسّعة وفيديوهات تعليمية</b><p>جلستان إضافيتان منفصلتان (المخازن: المخزون والحركات والتنبيهات في أودو — والإدارة: الأسعار والتقارير والصلاحيات)، بالإضافة إلى 3–5 فيديوهات قصيرة للمهام المتكررة تبقى مرجعاً للموظفين الجدد. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تدريب وتوثيق موسّع للدفع والفوترة وأدوات المندوب والنسخة الإنجليزية</b><p>يشمل تدريب المحاسبة على دورة الفاتورة الإلكترونية وتسوية المدفوعات، وتدريب المندوبين على الأدوات الميدانية، وإجراءات إدارة النسخة الإنجليزية. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>التوثيق الفني والتسليم</b><p>يشمل المعمارية، مخطط قاعدة البيانات، متغيرات البيئة، إجراءات النشر والاسترجاع، وتسليم المستودع وكل بيانات الاعتماد باسم الشركة عبر مدير أسرار أو ملف مشفّر بمحضر تسليم موقّع (لا تُرسل مفاتيح الإنتاج على واتساب). التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>توثيق فني موسّع للباقة المتكاملة</b><p>توثيق إضافي لمسارات الدفع والفوترة الإلكترونية وترميز الأصناف، وطبقة مزامنة أودو وسجل التعارضات، وإجراءات إعادة نشر التطبيق على المتجرين — لنظام من 221 يوم عمل. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">2</span></td>
+        <td class="c-num c-money"><span class="n">15,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>إدارة المشروع والتنسيق — الأساس</b><p>النسبة الآن 8.4% من أيام باقة الإطلاق. يشمل: اجتماعاً أسبوعياً بمحضر، تقرير تقدّم دوري، إدارة اعتماد المراحل، متابعة التزامات الشركة، وإدارة أوامر التغيير وتوثيقها. التسعير: 7 × 7,500 = 52,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">7</span></td>
+        <td class="c-num c-money"><span class="n">52,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>إدارة المشروع — الحصة الإضافية لباقة النمو</b><p>أيام إدارة إضافية تقابل اتساع النطاق والمدة (22 أسبوعاً بدل 13) وتنسيق فريق أكبر يعمل بالتوازي ومتابعة تسليمات أودو والمزامنة. إجمالي إدارة المشروع في باقة النمو 12 يوماً = 8.6% من أيامها. التسعير: 5 × 7,500 = 37,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">5</span></td>
+        <td class="c-num c-money"><span class="n">37,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>إدارة المشروع — الحصة الإضافية للباقة المتكاملة</b><p>أيام إدارة لمدة 34 أسبوعاً وتنسيق الأطراف الخارجية (Paymob، منظومة ETA، متجرا آبل وجوجل، مزود واتساب بيزنس)، ومتابعة استخراج رقم D-U-N-S والمستندات الرسمية، وإدارة المخاطر عبر خمس دفعات. إجمالي إدارة المشروع في الباقة المتكاملة 18 يوماً = 8.1% من أيامها. التسعير: 6 × 7,500 = 45,000 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">6</span></td>
+        <td class="c-num c-money"><span class="n">45,000</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>متابعة الضمان والاستقرار بعد الإطلاق (3 شهور)</b><p>إصلاح مجاني لأي خلل برمجي أو انحراف عن المواصفات الموقّعة لمدة 3 شهور من تاريخ الإطلاق بزمن استجابة أقصاه 48 ساعة عمل. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip chip--on">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>حصة ضمان إضافية لاتساع نطاق باقتي النمو والمتكاملة</b><p>يوم إضافي يقابل اتساع سطح النظام في الضمان (أودو والمزامنة والمخزون والشحن وإتمام الطلب) مقارنة بباقة الإطلاق. التسعير: 1 × 7,500 = 7,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip chip--on">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">1</span></td>
+        <td class="c-num c-money"><span class="n">7,500</span></td>
+      </tr>
+      <tr>
+        <td class="c-item"><b>تمديد الضمان إلى 6 شهور مع اتفاقية مستوى خدمة (SLA)</b><p>مضاعفة فترة الضمان إلى ستة شهور مع SLA ملزم: 4 ساعات استجابة للأعطال الحرجة (توقف الموقع، تعطل الدفع، فشل إرسال فاتورة لـETA) و24 ساعة عمل للأعطال العادية — ومتابعة النظام عبر موسم تسميد كامل. جزاء الإخلال بالـSLA منصوص عليه في الشروط التجارية. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+        <td class="c-chip"><span class="chips"><i class="chip">إطلاق</i><i class="chip">نمو</i><i class="chip chip--on">متكاملة</i></span></td>
+        <td class="c-num"><span class="n">3</span></td>
+        <td class="c-num c-money"><span class="n">22,500</span></td>
+      </tr></tbody>
+    <tfoot><tr><td colspan="2">إجمالي المرحلة 9</td><td class="c-num"><span class="n">41</span></td><td class="c-num c-money"><span class="n">300,000</span></td></tr></tfoot>
+  </table>
+  </div>
+</section>
+    <div class="grand">
+      
+      <div class="grand__c">
+        <h4>باقة الإطلاق</h4>
+        <dl>
+          <div><dt>مجموع البنود</dt><dd><span class="n">642,500</span></dd></div>
+          <div><dt>خصم الباقة</dt><dd>−<span class="n">19,500</span></dd></div>
+          <div><dt>صافي التنفيذ</dt><dd><span class="n">623,000</span></dd></div>
+          <div><dt>ض.ق.م <span class="n">14%</span></dt><dd><span class="n">87,220</span></dd></div>
+          <div class="tot"><dt>الإجمالي</dt><dd><span class="n">710,220</span></dd></div>
+        </dl>
+      </div>
+      <div class="grand__c is-rec">
+        <h4>باقة النمو</h4>
+        <dl>
+          <div><dt>مجموع البنود</dt><dd><span class="n">1,065,000</span></dd></div>
+          <div><dt>خصم الباقة</dt><dd>−<span class="n">55,000</span></dd></div>
+          <div><dt>صافي التنفيذ</dt><dd><span class="n">1,010,000</span></dd></div>
+          <div><dt>ض.ق.م <span class="n">14%</span></dt><dd><span class="n">141,400</span></dd></div>
+          <div class="tot"><dt>الإجمالي</dt><dd><span class="n">1,151,400</span></dd></div>
+        </dl>
+      </div>
+      <div class="grand__c">
+        <h4>الباقة المتكاملة</h4>
+        <dl>
+          <div><dt>مجموع البنود</dt><dd><span class="n">1,710,000</span></dd></div>
+          <div><dt>خصم الباقة</dt><dd>−<span class="n">105,000</span></dd></div>
+          <div><dt>صافي التنفيذ</dt><dd><span class="n">1,605,000</span></dd></div>
+          <div><dt>ض.ق.م <span class="n">14%</span></dt><dd><span class="n">224,700</span></dd></div>
+          <div class="tot"><dt>الإجمالي</dt><dd><span class="n">1,829,700</span></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">05</span><h2>إضافات اختيارية</h2></div>
+    <p class="sec__lead">بنود خارج الباقة المتعاقد عليها، تُضاف وقت التعاقد أو لاحقاً بنفس الأسعار المثبتة. البنود المذكورة كـ«مضمّنة» تكون بلا تكلفة إضافية في الباقة المشار إليها.</p>
+    <div class="tblwrap">
+      <table class="tbl">
+        <thead><tr><th>الإضافة</th><th class="c-num">أيام</th><th class="c-num">القيمة (ج.م)</th></tr></thead>
+        <tbody>
+  <tr>
+    <td class="c-item"><b>تطبيق موبايل أصلي بقاعدة كود منفصلة (React Native + Expo)</b><p>تطبيق أصلي كامل يشارك أنواع TypeScript ومنطق الأعمال مع الموقع: كتالوج وبحث، حساب وسجل طلبات، سلة ودفع، تتبع شحنة، ووضع مندوب ميداني بأوفلاين كامل بـSQLite. لا يشمل صيانة قاعدة الكود الثانية (تُقدَّر 25–30% من قيمة البناء سنوياً). توصيتنا الصريحة: أجّلوه حتى يثبت غلاف Capacitor عدم كفايته. التسعير: 35 × 7,500 = 262,500 ج.</p></td>
+    <td class="c-num"><span class="n">35</span></td>
+    <td class="c-num c-money"><span class="n">262,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>نظام Odoo Community مستضافاً ذاتياً + طبقة المزامنة (لباقة الإطلاق)</b><p>مضمّن في النمو والمتكاملة. ترقية من الـCRM الجاهز المجاني إلى نظام Odoo Community مملوك بالكامل على سيرفر الشركة برخصة صفر إلى الأبد — CRM ومبيعات وعروض أسعار وجهات اتصال ومخزون بعربية RTL أصلية، مع طبقة مزامنة معلنة مع الموقع. التسعير: 14 × 7,500 + 5 × 9,500 = 105,000 + 47,500 = 152,500 ج.</p></td>
+    <td class="c-num"><span class="n">19</span></td>
+    <td class="c-num c-money"><span class="n">152,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>التكامل مع منظومة الفاتورة الإلكترونية ETA</b><p>مضمّن في الباقة المتكاملة. الختم الإلكتروني، إرسال الفواتير واستقبال الـUUID، ترميز الأصناف GS1/EGS بمعاملة ضريبية لكل صنف، الفواتير المبدئية والإشعارات الدائنة، وتقارير التسوية. يصبح إلزامياً فور تفعيل التحصيل الأونلاين أو إصدار فواتير ضريبية نهائية من النظام. التسعير: 8 × 9,500 = 76,000 ج.</p></td>
+    <td class="c-num"><span class="n">8</span></td>
+    <td class="c-num c-money"><span class="n">76,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>غلاف التطبيق والنشر على App Store و Google Play</b><p>مضمّن في الباقة المتكاملة. غلاف Capacitor أصلي فوق الـPWA باسم الشركة وأيقونتها مع إشعارات Push حقيقية، وتجهيز الأيقونات ولقطات الشاشة والوصف العربي، ويشمل حتى دورتي رد على رفض لكل متجر. باقة الإطلاق تحتاج معه بند الـPWA أولاً. الرسوم على الشركة: 99 دولار سنوياً لآبل و25 دولار مرة واحدة لجوجل. التسعير: 10 × 7,500 = 75,000 ج.</p></td>
+    <td class="c-num"><span class="n">10</span></td>
+    <td class="c-num c-money"><span class="n">75,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>أدوات المندوب والمهندس الزراعي الميداني</b><p>مضمّنة في الباقة المتكاملة. أخذ الطلبات من الحقل، تسجيل الزيارة بالموقع الجغرافي، تقرير زيارة عربي يعمل بشبكة ضعيفة ثم يزامن، إدارة المناطق والحصص، وعمولات المندوبين. تُبنى فوق أودو لا بديلاً عنه. التسعير: 9 × 7,500 = 67,500 ج.</p></td>
+    <td class="c-num"><span class="n">9</span></td>
+    <td class="c-num c-money"><span class="n">67,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>بوابة موزعين مستقلة</b><p>واجهة منفصلة للموزعين المعتمدين: أسعارهم الخاصة، حدهم الائتماني ورصيدهم، سجل مشترياتهم، طلبات سريعة بالكميات المعتادة، ومستنداتهم الفنية وفواتيرهم في مكان واحد. التسعير: 8 × 7,500 = 60,000 ج.</p></td>
+    <td class="c-num"><span class="n">8</span></td>
+    <td class="c-num c-money"><span class="n">60,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>تعدد اللغات عربي/إنجليزي + دمج ومراجعة ترجمة الـ43 منتجاً</b><p>مضمّن في الباقة المتكاملة. إطار next-intl وتوجيه اللغة وتبديل RTL/LTR واستخراج كل النصوص (5 × 7,500 = 37,500) + دمج ومراجعة الترجمة في النظام (3 × 6,000 = 18,000). أتعاب المترجم الفني الزراعي المتخصص (18,000–28,000 ج) تُسدَّد من الشركة مباشرة للمترجم وهي مستثناة. التسعير: 55,500 ج.</p></td>
+    <td class="c-num"><span class="n">8</span></td>
+    <td class="c-num c-money"><span class="n">55,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>تطبيق ويب تقدمي (PWA) بعمل دون اتصال (لباقة الإطلاق)</b><p>مضمّن في النمو والمتكاملة. أيقونة على شاشة الهاتف، كتالوج كامل يعمل بدون إنترنت في الأراضي الزراعية، Web Push (بتحفظ iOS المذكور في البند)، وتحديث لحظي بلا مراجعة متجر وبصفر رسوم. التسعير: 6 × 7,500 = 45,000 ج.</p></td>
+    <td class="c-num"><span class="n">6</span></td>
+    <td class="c-num c-money"><span class="n">45,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>بوابة الدفع المصرية Paymob</b><p>مضمّنة في الباقة المتكاملة. بطاقات وميزة ومحافظ فودافون وإتصالات كاش وأكواد فوري المرجعية، مع 3D Secure و Webhooks وتسوية واسترداد. ملاحظة صريحة: ننصح بتأجيلها حتى تؤكد الشركة رغبتها في البيع للمستهلك النهائي — صفقة طن NPK لا تُدفع ببطاقة. التسعير: 4 × 9,500 = 38,000 ج.</p></td>
+    <td class="c-num"><span class="n">4</span></td>
+    <td class="c-num c-money"><span class="n">38,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>حاسبة البرنامج السمادي وأدوات القيمة المضافة</b><p>مضمّنة في الباقة المتكاملة. حاسبة حسب المحصول والمساحة ومرحلة النمو تُخرج توصية قابلة للإضافة مباشرة لطلب عرض السعر، مقارنة المنتجات، ودليل «أين تشتري» بخريطة الموزعين. القواعد الزراعية يوردها مهندس أجروميد على نموذجنا. التسعير: 5 × 7,500 = 37,500 ج.</p></td>
+    <td class="c-num"><span class="n">5</span></td>
+    <td class="c-num c-money"><span class="n">37,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>ترقية إصدار أودو الكبرى (لكل إصدار رئيسي)</b><p>الآن مستثناة من عقد الصيانة ومسعّرة منفصلة: ترحيل البيانات، إعادة تطبيق التخصيصات، اختبار المزامنة، وتقرير قبول. عقد الصيانة يغطي التحديثات الصغرى والأمنية فقط. التسعير: 4 × 7,500 = 30,000 ج.</p></td>
+    <td class="c-num"><span class="n">4</span></td>
+    <td class="c-num c-money"><span class="n">30,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>واتساب بيزنس API الرسمي بقوالب معتمدة</b><p>مضمّن في الباقة المتكاملة. إرسال عروض الأسعار PDF، تحديثات حالة الطلب والشحنة، تذكير ببرامج التسميد الموسمية، ورد آلي خارج ساعات العمل. يتطلب تحقق أعمال من ميتا (2–4 أسابيع على الشركة) ورقماً مخصصاً غير مستخدم على تطبيق واتساب العادي. التسعير: 3 × 9,500 = 28,500 ج.</p></td>
+    <td class="c-num"><span class="n">3</span></td>
+    <td class="c-num c-money"><span class="n">28,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>تكامل شركة شحن خارجية (بوسطة / أرامكس / ميلرز)</b><p>إنشاء بوالص الشحن آلياً، تتبع الشحنة داخل حساب العميل، ومزامنة حالات التسليم وإثبات الاستلام مع لوحة التحكم وأودو. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+    <td class="c-num"><span class="n">3</span></td>
+    <td class="c-num c-money"><span class="n">22,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>مركز المحتوى الزراعي (مدونة وأخبار)</b><p>قسم محتوى كامل بتصنيفات ووسوم وربط بالمنتجات وبيانات SEO منظمة — لبناء الزيارات العضوية طويلة الأمد. لا يشمل كتابة المقالات الدورية. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+    <td class="c-num"><span class="n">3</span></td>
+    <td class="c-num c-money"><span class="n">22,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>ترقية Odoo Community إلى Enterprise وترحيل البيانات</b><p>الترقية بعد 9–12 شهر تشغيل عند الحاجة الفعلية للدعم الرسمي و Odoo Studio وتطبيق الموبايل الرسمي للمندوبين. الترقية ترحيل بيانات مباشر لا إعادة بناء. الرخصة على الشركة: نحو 65,000 ج السنة الأولى ثم 82,000 ج سنوياً لعشرة مستخدمين. التسعير: 3 × 7,500 = 22,500 ج.</p></td>
+    <td class="c-num"><span class="n">3</span></td>
+    <td class="c-num c-money"><span class="n">22,500</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>دراسة قابلية الربط بالدورة المحاسبية / ERP</b><p>مضمّنة في الباقة المتكاملة. دراسة موثّقة بسعر ثابت تحدد المسار (API أو وحدات أودو أو تصدير دوري) وتُخرج تقديراً ملزماً للتنفيذ ضمن نطاق معلن 60,000–140,000 ج يُتعاقد عليه منفصلاً. لا نسعّر تكاملاً ثابتاً مع نظام لم نره. التسعير: 2 × 9,500 = 19,000 ج.</p></td>
+    <td class="c-num"><span class="n">2</span></td>
+    <td class="c-num c-money"><span class="n">19,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>المراجعة التحريرية والزراعية المعتمدة للمحتوى</b><p>مضمّنة في الباقة المتكاملة. مراجعة لغوية عربية احترافية، تدقيق الأسماء الإنجليزية، مراجعة الادعاءات الزراعية والتسويقية، وعرض أرقام تسجيل وزارة الزراعة على كل منتج. التسعير: 3 × 6,000 = 18,000 ج.</p></td>
+    <td class="c-num"><span class="n">3</span></td>
+    <td class="c-num c-money"><span class="n">18,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>إدخال ومراجعة الأسعار الفعلية للـ43 منتجاً (لباقة الإطلاق)</b><p>مضمّن في النمو والمتكاملة. إدخال الأسعار بكل عبوة وشريحة ومراجعتها، وحسم نسبة البورون في «جرومو فروتكس»، واستبدال الخامات العشر المبدئية بقوائم الاستيراد الحقيقية. بدونه تُسلَّم شاشة الأسعار فارغة وتُدخلها الشركة بنفسها. التسعير: 3 × 6,000 = 18,000 ج.</p></td>
+    <td class="c-num"><span class="n">3</span></td>
+    <td class="c-num c-money"><span class="n">18,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>تحقق OTP على رقم الهاتف</b><p>مضمّن في الباقة المتكاملة. تحقق برمز على الهاتف عند التسجيل وعند العمليات الحساسة — الأنسب للسوق المصري. يستلزم رصيد رسائل شهرياً على الشركة. التسعير: 2 × 7,500 = 15,000 ج.</p></td>
+    <td class="c-num"><span class="n">2</span></td>
+    <td class="c-num c-money"><span class="n">15,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>إدارة وتنسيق جلسة التصوير الاحترافي</b><p>الآن نتولى الإدارة والتنسيق ومعالجة وتحسين الصور (2 × 7,500 = 15,000 ج)، وأتعاب المصور والاستوديو والانتقالات بين الغردقة والمنيا الجديدة (45,000–60,000 ج) تُسدَّد من الشركة مباشرة وهي مستثناة. النطاق: 33 عبوة بزوايا متعددة، الخامات العشر، والمصنع وخطوط الإنتاج والمعمل.</p></td>
+    <td class="c-num"><span class="n">2</span></td>
+    <td class="c-num c-money"><span class="n">15,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>زيارة ميدانية إضافية</b><p>يوم عمل بالموقع + يوم انتقال شاملة السفر والإقامة (الغردقة أو المنيا الجديدة). التسعير: 2 × 6,000 = 12,000 ج. الأيام الميدانية الإضافية بعد ذلك 6,000 ج لليوم + التكاليف الفعلية.</p></td>
+    <td class="c-num"><span class="n">2</span></td>
+    <td class="c-num c-money"><span class="n">12,000</span></td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>تنسيق اختبار اختراق من جهة مستقلة</b><p>أتعاب الجهة المستقلة (60,000–90,000 ج في السوق المصري) تتعاقد عليها الشركة مباشرة. إلزامي عملياً قبل تشغيل تحصيل بأموال عملاء حقيقيين إن طلبه البنك أو بوابة الدفع. التسعير: 1 × 7,500 = 7,500 ج (تنسيق ومعالجة نتائج).</p></td>
+    <td class="c-num"><span class="n">1</span></td>
+    <td class="c-num c-money"><span class="n">7,500</span></td>
+  </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">06</span><h2>التكاليف المتكررة</h2></div>
+    <p class="sec__lead">هذه تكاليف تشغيل تُسدَّد لمصادرها مباشرة ولا تمر عبر ديم، وهي منفصلة تماماً عن سعر التنفيذ. البنية بالكامل مفتوحة المصدر — صفر رخص برمجية إلى الأبد.</p>
+    <div class="tblwrap">
+      <table class="tbl">
+        <thead><tr><th>البند</th><th class="c-num">التكلفة</th><th class="c-per">الدورية</th></tr></thead>
+        <tbody>
+  <tr class="">
+    <td class="c-item"><b>استضافة خادم التطبيق وقاعدة البيانات (VPS)</b><p>خادم 4 أنوية / 8 جيجا رام لتشغيل Next.js + Payload + PostgreSQL. الشركة تملك بالفعل سيرفر Coolify يعمل عليه الموقع — إذا استُخدم نفسه تقترب التكلفة الحدّية من الصفر. بديل مصري بالدفع بالجنيه عبر إنستاباي/فودافون كاش بنحو 8,400 ج.</p></td>
+    <td class="c-num c-money"><span class="n">12,000</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>موارد إضافية لتشغيل Odoo (رفع الرام إلى 16 جيجا أو خادم منفصل)</b><p>يخص باقتي النمو والمتكاملة فقط. ترقية سيرفر Coolify الحالي إن كان أقل من 16 جيجا مسؤولية الشركة.</p></td>
+    <td class="c-num c-money"><span class="n">12,000</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>الدومين الرسمي agromeed.com</b><p>يُسجَّل باسم الشركة لا باسم المورّد — شرط أساسي لحمايتكم. الموقع اليوم على arg.aligm.cloud وهو دومين تجريبي يخص المطوّر.</p></td>
+    <td class="c-num c-money"><span class="n">800</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>الدومين agromeed.com.eg (حجز دفاعي اختياري)</b><p>يُدار عبر domain.eg. يعزز الهوية المحلية أمام الجهات الحكومية ويمنع استيلاء طرف آخر على الاسم.</p></td>
+    <td class="c-num c-money"><span class="n">950</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>شهادة SSL</b><p>صفر تكلفة إلى الأبد عبر Let&#x27;s Encrypt و Traefik الموجودين فعلاً على السيرفر، بتجديد تلقائي كل 90 يوماً. مفعّلة بالفعل — ولا يجوز لأي مورّد تحصيل مبلغ مقابلها.</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>شبكة توصيل المحتوى (Cloudflare Free)</b><p>بند مضاف: تسريع الأصول وحماية أساسية على الطبقة المجانية، مشمول تنفيذه ضمن بند مكتبة الوسائط بصفر تكلفة اشتراك</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>النسخ الاحتياطي خارج السيرفر</b><p>تخزين خارجي لنسخة يومية من قاعدة البيانات والوسائط ولقطات أسبوعية. غير قابل للتنازل بعد دخول قاعدة البيانات — نسخة على نفس السيرفر ليست نسخة احتياطية.</p></td>
+    <td class="c-num c-money"><span class="n">3,000</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>بريد الأعمال لفريق المبيعات</b><p>البديل Google Workspace بنحو 4,200 ج/مستخدم/سنة أي 42,000 ج لعشرة مستخدمين — قرار الشركة.</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>تتبع الأخطاء (Sentry)</b><p>عند تجاوزها على نظام دفع وفوترة نحو 15,000 ج سنوياً، أو بديل مستضاف ذاتياً على نفس الخادم.</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>جدار حماية التطبيقات Cloudflare Pro / WAF</b><p>بند مضاف: مطلوب لبيئة الدفع في الباقة المتكاملة فقط</p></td>
+    <td class="c-num c-money"><span class="n">12,000</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>رخص البرمجيات (Next.js + PostgreSQL + Payload + Odoo Community)</b><p>صفر جنيه إلى الأبد — كلها مفتوحة المصدر ومستضافة على سيرفركم. تبقى اشتراكات الخدمات التشغيلية المذكورة في هذا الجدول. للمقارنة: Zoho CRM Professional 138,000 ج/سنة، Salesforce Starter 150,000 ج/سنة و Pro Suite 600,000، HubSpot Professional 540,000 ج/سنة + 75,000 رسوم تهيئة.</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>CRM جاهز — الطبقة المجانية (باقة الإطلاق)</b><p>HubSpot Free (مستخدمان و1,000 جهة اتصال) أو Zoho Free (3 مستخدمين) أو Bitrix24 Free (5 مستخدمين). عند تجاوزها: Bitrix24 Standard 59,400 ج/سنة ثابتة حتى 50 مستخدماً (الأوفر)، أو Zoho Bigin 42,000 ج/سنة. تنبيه: هذه خدمات أجنبية ونقل بيانات العملاء إليها نقل عبر الحدود يخضع لقانون 151/2018 — وخيار التخزين المحلي فقط متاح.</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>Odoo Enterprise خطة Custom (اختياري بعد 9–12 شهر)</b><p>لعشرة مستخدمين. السنة الأولى بخصم نحو 65,000 ج ثم 82,000 ج. خطة Standard الأرخص لا تصلح لأنها تحجب الـExternal API اللازم لربط الموقع. غير مطلوب إطلاقاً في السنة الأولى.</p></td>
+    <td class="c-num c-money"><span class="n">82,000</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>Apple Developer Program</b><p>مطلوب فقط عند النشر على App Store، ويُسدَّد بسعر الصرف يوم السداد ببطاقة دولية، وحساب المؤسسة يستلزم رقم D-U-N-S. يتوقف التطبيق عن العمل إن لم يُجدَّد.</p></td>
+    <td class="c-num c-money"><span class="n">4,950</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>Google Play Console</b><p>25 دولار × 50 ج مرة واحدة مدى حياة الحساب وليست رسماً سنوياً. حساب المؤسسة (لا الشخصي) يعفي من شرط 12 مختبِراً لمدة 14 يوماً.</p></td>
+    <td class="c-num c-money"><span class="n">1,250</span></td>
+    <td class="c-per">مرة واحدة</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>رقم D-U-N-S من Dun &amp; Bradstreet</b><p>مجاني تماماً لكنه يستغرق حتى 30 يوم عمل، وهو شرط إلزامي لحسابي المؤسسة لدى آبل وجوجل. يجب بدء استخراجه في اليوم الأول من المشروع وإلا تأخر نشر التطبيق شهراً كاملاً بلا سبب فني.</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">مرة واحدة</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>شهادة التوقيع الإلكتروني (e-Seal) لمنظومة ETA</b><p>تجديد سنوي من جهة إصدار معتمدة. تنبيه: التسجيل في منظومة الفاتورة الإلكترونية إلزامي على الشركة ككيان بصرف النظر عن الموقع، والغرامة 20,000 ج فوراً + 1,000 ج عن كل يوم تأخير.</p></td>
+    <td class="c-num c-money"><span class="n">5,000</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>واتساب بيزنس API ورسائل SMS</b><p>لإشعارات الطلبات وعروض الأسعار ورموز OTP. التكلفة حسب حجم الرسائل وتبدأ من نحو 8,000 ج للحجم المنخفض. رسوم المحادثات لدى مزود BSP على الشركة.</p></td>
+    <td class="c-num c-money"><span class="n">15,000</span></td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>البريد التشغيلي (Resend / Brevo) والمراقبة (UptimeRobot)</b><p>الطبقتان المجانيتان تكفيان لسنوات (نحو 3,000 رسالة شهرياً + فحص توفر كل 5 دقائق). الترقية عند الحاجة نحو 12,000 ج سنوياً.</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">سنوي</td>
+  </tr>
+  <tr class="is-free">
+    <td class="c-item"><b>عمولة بوابة الدفع Paymob</b><p>صفر رسوم تأسيس وصفر اشتراك شهري. العمولة 2.75% + 3 ج لكل معاملة ناجحة. إذا ظل البيع بالجملة عبر عرض السعر والتحويل البنكي فهذا البند = صفر.</p></td>
+    <td class="c-num c-money">مجاني</td>
+    <td class="c-per">متغير — نسبة من المبيعات</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>عقد الصيانة والدعم — باقة الإطلاق</b><p>18.3% من قيمة التنفيذ (114,000 من 623,000) وهي النسبة السائدة مصرياً 15–25%. يبدأ بعد انتهاء الضمان، فالمستحق فعلياً في السنة الأولى 9 شهور = 85,500 ج. يشمل: تحديثات أمنية لـNext.js و Payload وقاعدة البيانات، مراقبة النسخ الاحتياطي والتأكد من قابلية الاسترجاع، إدخال حتى 10 منتجات شهرياً نيابةً عنكم (ما زاد 400 ج للمنتج)، حتى 8 ساعات تعديلات صغيرة شهرياً، واستجابة خلال 24 ساعة عمل.</p></td>
+    <td class="c-num c-money"><span class="n">114,000</span></td>
+    <td class="c-per">سنوي (9,500 ج شهرياً)</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>عقد الصيانة والدعم — باقة النمو</b><p>17.8% من قيمة التنفيذ (180,000 من 1,010,000). المستحق فعلياً في السنة الأولى بعد ضمان 3 شهور = 135,000 ج. يضيف: صيانة أودو وطبقة المزامنة والتحديثات الصغرى والأمنية له، مراقبة المخزون والطلبات، حتى 12 ساعة تعديلات شهرياً. تنبيه: ترقية إصدار أودو الكبرى مستثناة وتُسعَّر 30,000 ج لكل إصدار رئيسي لأنها تكسر التخصيصات.</p></td>
+    <td class="c-num c-money"><span class="n">180,000</span></td>
+    <td class="c-per">سنوي (15,000 ج شهرياً)</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>عقد الصيانة والدعم — الباقة المتكاملة</b><p>17.6% من قيمة التنفيذ (282,000 من 1,605,000). المستحق فعلياً في السنة الأولى بعد ضمان 6 شهور = 141,000 ج. يضيف: متابعة تكامل ETA وبوابة الدفع وأي تغيير في مواصفاتهما، تجديد نشر التطبيق على المتجرين، اختبار استرجاع ربع سنوي موثّق، حتى 16 ساعة تعديلات شهرياً، و SLA باستجابة 4 ساعات للأعطال الحرجة.</p></td>
+    <td class="c-num c-money"><span class="n">282,000</span></td>
+    <td class="c-per">سنوي (23,500 ج شهرياً)</td>
+  </tr>
+  <tr class="">
+    <td class="c-item"><b>مستوى صيانة أساسي مخفّض (بديل لأي باقة)</b><p>متاح لباقتي النمو والمتكاملة كنقطة دخول تُرقّى لاحقاً.</p></td>
+    <td class="c-num c-money"><span class="n">96,000</span></td>
+    <td class="c-per">سنوي (8,000 ج شهرياً)</td>
+  </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">07</span><h2>الجدول الزمني</h2></div>
+    <div class="tblwrap">
+      <table class="tbl">
+        <thead><tr><th>المرحلة والتسليمات</th><th class="c-weeks">التوقيت</th></tr></thead>
+        <tbody>
+  <tr>
+    <td class="c-item"><b>المرحلة صفر — التأسيس والمعمارية</b><ul class="dots"><li>وثيقة نطاق ومواصفات وظيفية موقّعة</li><li>مخطط قاعدة البيانات النهائي وتحديد مصدر الحقيقة لكل كيان بين الموقع وأودو، ومصفوفة الأدوار والصلاحيات</li><li>المستودع باسم الشركة + بيئة staging + خط النشر الآلي CI/CD</li><li>نقل الدومين الرسمي وضبط البريد و DNS و SPF/DKIM/DMARC</li><li>كتابة نصوص الواجهة والرسائل التشغيلية بالعربية</li><li>تصاميم الشاشات الجديدة معتمدة (باقتا النمو والمتكاملة)</li><li>بدء استخراج رقم D-U-N-S من اليوم الأول واعتماد المعاملة الضريبية لكل صنف من مستشاركم الضريبي</li><li>تحميل الفترة: 8 أيام عمل لباقة الإطلاق و12 للنمو على 10 أيام تقويمية</li></ul></td>
+    <td class="c-weeks">الأسبوعان 1–2 (كل الباقات)</td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>المرحلة 1 — الباك إند وقاعدة البيانات ولوحة التحكم</b><ul class="dots"><li>Payload CMS + PostgreSQL يعملان داخل نفس التطبيق مع طبقة API كاملة</li><li>ترحيل الـ43 منتجاً و10 خامات و33 صورة إلى قاعدة البيانات</li><li>لوحة تحكم عربية RTL بالأدوار والصلاحيات وسجل التدقيق</li><li>شاشات إدارة المنتجات والأقسام والأسعار وقوائم الأسعار والمعاملة الضريبية القابلة للتهيئة</li><li>مكتبة الوسائط ورفع الصور بأحجام وصيغ محسّنة وشبكة توصيل محتوى مجانية</li><li>الواجهة القائمة تقرأ من قاعدة البيانات (بلا تغيير في التصميم)</li><li>نُقلت إلى هنا بعد المراجعة لتصحيح اختلال توزيع الأيام: تأمين التطبيق، النسخ الاحتياطي، المراقبة، حزمة SEO التقنية، التحليلات، الصفحات القانونية، تحسين الأداء</li><li>تحميل الفترة: 36 يوم عمل لباقة الإطلاق و39 للنمو على 30 يوماً تقويمياً (1.2–1.3 فرد)</li></ul></td>
+    <td class="c-weeks">الأسابيع 3–8 (كل الباقات)</td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>المرحلة 2 — مسار الطلب والتقاط العملاء</b><ul class="dots"><li>سلة عرض السعر على الخادم ورصد السلال المتروكة</li><li>نقطة /api/leads وصندوق وارد الطلبات بطابور إعادة محاولة</li><li>إشعارات المبيعات على البريد والواتساب</li><li>البحث العربي الذكي وإمكانية الوصول وصفحات الأخطاء وحالات التحميل</li><li>الاختبارات الآلية للمسار الحرج</li><li>باقة الإطلاق: شاشة عروض الأسعار وتوليد PDF عربي وربط الـCRM الجاهز المجاني</li><li>النمو والمتكاملة: حسابات العملاء واعتماد B2B وحقوق أصحاب البيانات ومركز المستندات الفنية والتقارير وإدخال الأسعار</li><li>تحميل الفترة: 20 يوم عمل لباقة الإطلاق على 15 يوماً (1.33 فرد) و24 للنمو على 20 يوماً (1.2 فرد)</li></ul></td>
+    <td class="c-weeks">الأسابيع 9–11 لباقة الإطلاق / 9–12 للنمو والمتكاملة</td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>المرحلة 3 — الإطلاق والتسليم (باقة الإطلاق) / أودو والمزامنة والشحن (النمو والمتكاملة)</b><ul class="dots"><li>باقة الإطلاق: النشر الإنتاجي و UAT بمحضر موقّع، الزيارتان الميدانيتان، التدريب والدليل العربي، التوثيق الفني والتسليم — الإطلاق الرسمي نهاية الأسبوع 13</li><li>النمو والمتكاملة: Odoo Community يعمل على سيرفر الشركة برخصة صفر بقوالب عروض أسعار عربية وفرق مبيعات بالمحافظات</li><li>طبقة المزامنة الموقع↔أودو (منتجات، أسعار، مخزون، عملاء، طلبات) بطابور وسجل تعارضات</li><li>تدفق إتمام الطلب الكامل وصفحة التتبع</li><li>الشحن بالوزن لـ27 محافظة وخيار الاستلام من المصنع</li><li>الدفع عند الاستلام والتحويل البنكي وإنستاباي برفع الإيصال واعتماده</li><li>تحسين الظهور المحلي و Google Business Profile للمقر والمصنع</li><li>تحميل الفترة: 29 يوم عمل على 25 يوماً تقويمياً للنمو (1.16 فرد)</li></ul></td>
+    <td class="c-weeks">الأسبوعان 12–13 لباقة الإطلاق — الأسابيع 13–17 للنمو والمتكاملة</td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>المرحلة 4 — التطبيق التقدمي والقبول والإطلاق (باقة النمو)</b><ul class="dots"><li>تطبيق ويب تقدمي (PWA) بكتالوج يعمل بدون إنترنت</li><li>اختبار الأجهزة والمتصفحات الموسّع على المصفوفة المعلنة</li><li>اختبار القبول UAT بمحضر موقّع من فريقي المبيعات والمخازن</li><li>الزيارتان الميدانيتان والتدريب الأساسي والموسّع والفيديوهات التعليمية</li><li>التوثيق الفني وتسليم الحسابات والمفاتيح باسم الشركة</li><li>الإطلاق الرسمي لباقة النمو نهاية الأسبوع 22 وبدء الضمان</li></ul></td>
+    <td class="c-weeks">الأسابيع 18–22</td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>المرحلة 5 — الدفع والفوترة الإلكترونية والتكاملات (الباقة المتكاملة)</b><ul class="dots"><li>بوابة Paymob عاملة على خط العبوات الصغيرة بسقف قيمة</li><li>التكامل مع منظومة الفاتورة الإلكترونية ETA وترميز الأصناف GS1/EGS بمعاملة ضريبية لكل صنف</li><li>واتساب بيزنس API الرسمي بقوالب معتمدة (بعد اكتمال تحقق ميتا على مسؤولية الشركة)</li><li>تحقق OTP على رقم الهاتف</li><li>دراسة قابلية الربط بالدورة المحاسبية / ERP بمخرج موثّق</li><li>تشديد أمني لبيئة الدفع ومراجعة OWASP موثّقة</li></ul></td>
+    <td class="c-weeks">الأسابيع 23–27</td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>المرحلة 6 — تطبيق المتاجر وأدوات المندوب وتعدد اللغات (الباقة المتكاملة)</b><ul class="dots"><li>التطبيق مرفوعاً على App Store و Google Play باسم الشركة (مدة انتظار المراجعة خارج الجدول)</li><li>الإشعارات الفورية Push والعمل دون اتصال المتقدم</li><li>أدوات المندوب والمهندس الزراعي الميداني بتسجيل الزيارات والمزامنة أوفلاين</li><li>النسخة الإنجليزية كاملة مع دمج ومراجعة ترجمة الـ43 منتجاً</li><li>حاسبة البرنامج السمادي ومقارنة المنتجات وخريطة الموزعين</li><li>تتبع التحويلات من جانب الخادم (CAPI)</li></ul></td>
+    <td class="c-weeks">الأسابيع 28–32</td>
+  </tr>
+  <tr>
+    <td class="c-item"><b>المرحلة 7 — الجودة والإطلاق والتسليم (الباقة المتكاملة)</b><ul class="dots"><li>توسيع تغطية الاختبارات الآلية واختبار Sandbox واختبار الحمل بهدف 200 مستخدم متزامن</li><li>المراجعة التحريرية والزراعية المعتمدة للمحتوى</li><li>اختبار القبول الموسّع UAT بمحضر موقّع والزيارة الميدانية الثالثة</li><li>الإطلاق الرسمي على الدومين النهائي</li><li>التدريب الموسّع للدفع والفوترة وأدوات المندوب، والدليل العربي المصوّر والفيديوهات، والتوثيق الفني الموسّع</li><li>تسليم المستودع وكل الحسابات والمفاتيح باسم الشركة عبر قناة آمنة وبدء ضمان الستة شهور</li></ul></td>
+    <td class="c-weeks">الأسابيع 33–34</td>
+  </tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">08</span><h2>دفعات السداد</h2></div>
+    <p class="sec__lead">خمس دفعات مرتبطة بتسليمات قابلة للمعاينة على بيئة تجريبية، لا بمرور الوقت. القيم أدناه قبل إضافة ضريبة القيمة المضافة.</p>
+    <div class="tblwrap">
+      <table class="tbl">
+        <thead><tr><th></th><th>الدفعة ومحفّز استحقاقها</th><th class="c-num">النسبة</th><th class="c-vals">القيمة حسب الباقة (ج.م)</th></tr></thead>
+        <tbody>
+  <tr>
+    <td class="c-no"><span class="n">1</span></td>
+    <td class="c-item"><b>الدفعة الأولى — التعاقد وبدء العمل</b><p>توقيع العقد واعتماد وثيقة النطاق ومخطط قاعدة البيانات. رُفعت من 25% إلى 30% بعد حساب فجوة السيولة: عند نهاية المرحلة 1 في باقة الإطلاق يكون المنجز 44 يوم عمل ≈ 330,000 ج بالسعر المُباع مقابل مقبوض 25% = 155,750 ج فقط. تبدأ المدة الزمنية من تاريخ استلام هذه الدفعة فعلياً في الحساب البنكي لا من تاريخ التوقيع.</p></td>
+    <td class="c-num c-pct"><span class="n">30</span>%</td>
+    <td class="c-vals"><span class="msv"><i>إطلاق</i><span class="n">186,900</span></span> <span class="msv"><i>نمو</i><span class="n">303,000</span></span> <span class="msv"><i>متكاملة</i><span class="n">481,500</span></span></td>
+  </tr>
+  <tr>
+    <td class="c-no"><span class="n">2</span></td>
+    <td class="c-item"><b>الدفعة الثانية — لوحة التحكم وقاعدة البيانات</b><p>تسليم لوحة التحكم العربية RTL وقاعدة البيانات عاملة على بيئة staging بالـ43 منتجاً مرحّلة، ومعاينة فريقكم لإضافة منتج وتعديل سعر بنفسه. (نهاية المرحلة 1 في الباقات الثلاث)</p></td>
+    <td class="c-num c-pct"><span class="n">20</span>%</td>
+    <td class="c-vals"><span class="msv"><i>إطلاق</i><span class="n">124,600</span></span> <span class="msv"><i>نمو</i><span class="n">202,000</span></span> <span class="msv"><i>متكاملة</i><span class="n">321,000</span></span></td>
+  </tr>
+  <tr>
+    <td class="c-no"><span class="n">3</span></td>
+    <td class="c-item"><b>الدفعة الثالثة — مسار الطلب والتقاط العملاء</b><p>وصول أول طلب تجريبي كامل من الموقع إلى المبيعات: سلة الطلب على الخادم، نقطة /api/leads وصندوق الوارد، إشعارات البريد والواتساب، والبحث العربي وصفحات الأخطاء. في باقة الإطلاق يضاف تسليم شاشة عروض الأسعار وتوليد PDF عربي وربط الـCRM الجاهز. (نهاية المرحلة 2)</p></td>
+    <td class="c-num c-pct"><span class="n">20</span>%</td>
+    <td class="c-vals"><span class="msv"><i>إطلاق</i><span class="n">124,600</span></span> <span class="msv"><i>نمو</i><span class="n">202,000</span></span> <span class="msv"><i>متكاملة</i><span class="n">321,000</span></span></td>
+  </tr>
+  <tr>
+    <td class="c-no"><span class="n">4</span></td>
+    <td class="c-item"><b>الدفعة الرابعة — تسليمة الباقة المتعاقد عليها</b><p>الآن التسليمة تتبع الباقة: لباقة الإطلاق — حزمة SEO والتحليلات والصفحات القانونية وتأمين التطبيق والنسخ الاحتياطي والمراقبة والاختبارات الآلية معاينةً على staging؛ لباقة النمو — أودو وطبقة المزامنة وحسابات العملاء واعتماد B2B وإتمام الطلب والشحن بالوزن والـPWA؛ للباقة المتكاملة — الدفع والفوترة الإلكترونية والتطبيق على المتجرين وأدوات المندوب والنسخة الإنجليزية.</p></td>
+    <td class="c-num c-pct"><span class="n">15</span>%</td>
+    <td class="c-vals"><span class="msv"><i>إطلاق</i><span class="n">93,450</span></span> <span class="msv"><i>نمو</i><span class="n">151,500</span></span> <span class="msv"><i>متكاملة</i><span class="n">240,750</span></span></td>
+  </tr>
+  <tr>
+    <td class="c-no"><span class="n">5</span></td>
+    <td class="c-item"><b>الدفعة الخامسة — الإطلاق والتسليم</b><p>الإطلاق الرسمي على الدومين النهائي بعد اجتياز اختبار القبول UAT بمحضر موقّع، وتسليم التدريب والدليل العربي والتوثيق الفني وكل الحسابات والمفاتيح باسم الشركة عبر قناة آمنة بمحضر تسليم، وبدء فترة الضمان.</p></td>
+    <td class="c-num c-pct"><span class="n">15</span>%</td>
+    <td class="c-vals"><span class="msv"><i>إطلاق</i><span class="n">93,450</span></span> <span class="msv"><i>نمو</i><span class="n">151,500</span></span> <span class="msv"><i>متكاملة</i><span class="n">240,750</span></span></td>
+  </tr></tbody>
+        <tfoot><tr><td></td><td>الإجمالي</td><td class="c-num c-pct"><span class="n">100</span>%</td><td class="c-vals"><span class="msv"><i>إطلاق</i><span class="n">623,000</span></span> <span class="msv"><i>نمو</i><span class="n">1,010,000</span></span> <span class="msv"><i>متكاملة</i><span class="n">1,605,000</span></span></td></tr></tfoot>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">09</span><h2>الافتراضات</h2></div>
+    <ol class="terms"><li>كل بند في الجدول التفصيلي = أيامه × فئته، ولا يوجد رقم واحد خارج هذه القاعدة.</li><li>النموذج الأولي المسلَّم فعلياً والعامل اليوم على arg.aligm.cloud (واجهة Next.js 16 بسبع صفحات و28 مكوّناً و3,455 سطر كود، و43 منتجاً مفرّغاً يدوياً من كتالوج PDF مصوّر من 30 صفحة، و33 صورة عبوة معالجة، وهوية بصرية مستخرجة، ونشر Docker خلف Traefik) أصل قائم مملوك لشركة أجروميد ولم يُحاسَب عليه أي جنيه في هذا العرض. قيمته 19 يوم عمل × 7,500 ج = 142,500 ج بجدول أسعار هذا العرض (وليس 150,000 المدوّرة سابقاً) — رقم قابل للتحقق بضربة آلة حاسبة. أثره العملي أهم من قيمته: أثقل بندين في أي مشروع أسمدة (تفريغ البيانات الفنية ومعالجة صور العبوات) عمل يدوي غير قابل للأتمتة وقد أُنجز ولن يتكرر.</li><li>حجم الفريق المفترض: مطوّران يعملان بمعدل مكافئ 1.3 يوم عمل لكل يوم تقويمي، بالإضافة إلى مصمم ومختبر بدوام جزئي. المدد المعلنة مبنية على هذا الافتراض صراحةً: الإطلاق 83 يوم عمل ÷ 65 يوماً تقويمياً = 1.28 فرد، النمو 139 ÷ 110 = 1.26، المتكاملة 221 ÷ 170 = 1.30. أُعيد توزيع الأيام على المراحل فأصبح التحميل بين 1.16 و1.33 فرد في كل فترة.</li><li>المعمارية المعتمدة ومصدر الحقيقة: في باقتي النمو والمتكاملة يكون Odoo مصدر الحقيقة للمخزون والعملاء وعروض الأسعار الرسمية وأوامر البيع، ويكون الموقع (Payload) مصدر الحقيقة للمحتوى والكتالوج والأسعار المعروضة، وبينهما طبقة مزامنة معلنة ومسعّرة.</li><li>البناء يتم فوق نفس المستودع والواجهة القائمة — لا رمي ولا إعادة كتابة. التصميم المسلَّم والمعتمد يبقى كما هو وتُغذّى الصفحات من قاعدة البيانات بدل الملف الثابت. أي إعادة تصميم للصفحات السبع المسلَّمة أو للهوية البصرية خارج النطاق ويُسعَّر 7,500 ج/يوم.</li><li>البنية بالكامل مفتوحة المصدر (Next.js + PostgreSQL + Payload CMS + Odoo Community) — صفر رخصة برمجية يدفعها العميل للمورّد أو لأي طرف ثالث. تبقى اشتراكات الخدمات التشغيلية المذكورة صراحةً في جدول التكاليف المتكررة (استضافة، دومين، نسخ احتياطي، بريد، واتساب، Cloudflare للباقة المتكاملة).</li><li>سعر التحويل المرجعي لكل البنود ذات المكوّن الدولاري = 50 جنيه للدولار (السعر الرسمي يوم إصدار العرض 49.78 شراء / 49.92 بيع، ونطاق آخر 12 شهراً 46.64–54.86).</li><li>مسار البيع الأساسي المفترض هو «طلب عرض سعر ← تفاوض ← أمر توريد ← تحويل بنكي أو دفع عند الاستلام»، وهو الواقع التجاري لتجارة الأسمدة بالجملة في مصر. الدفع الإلكتروني مصمَّم كقناة جانبية لخط العبوات الصغيرة لا كمحرك أساسي.</li><li>عدد المستخدمين الداخليين المفترض في التصميم والتدريب حتى 10 مستخدمين على لوحة التحكم وأودو. تجاوز ذلك بشكل كبير قد يستدعي مراجعة موارد السيرفر (لا سعر التطوير).</li><li>الشركة توفّر بيانات صحيحة ومعتمدة (أسعار، مواصفات، مستندات، المعاملة الضريبية لكل صنف، القواعد الزراعية لحاسبة البرنامج السمادي) في المواعيد المتفق عليها. مواصفات المنتجات المستخدمة حالياً منقولة عن الكتالوج المطبوع ولم تُعتمد بعد من الشركة.</li><li>الجهات الخارجية (Paymob، منظومة ETA، متجرا آبل وجوجل، مزود واتساب بيزنس) تعمل بواجهاتها ومواصفاتها المنشورة وقت التعاقد؛ أي تغيير جوهري من طرفهم يُعامَل كأمر تغيير. مدد مراجعة المتاجر وتحقق ميتا خارج أيام العمل ولا تدخل في الجدول الزمني.</li><li>المدة الزمنية تفترض توفّر شخص مسؤول واحد من جانب الشركة للاعتماد واتخاذ القرار، واجتماعاً أسبوعياً منتظماً، ورداً على طلبات المراجعة خلال 5 أيام عمل كحد أقصى — وهذه الأيام محسوبة داخل الجدول بعد التمديد.</li></ol>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">10</span><h2>خارج نطاق العرض</h2></div>
+    <p class="sec__lead">هذه القائمة ملزِمة بنفس درجة قائمة ما تشمله الباقة — الغرض منها حماية الطرفين من الخلاف بعد التسليم.</p>
+    <ol class="terms cols"><li>أي بند غير مذكور صراحةً في وثيقة نطاق الباقة المتعاقد عليها — قائمة «ما لا تشمله» في كل باقة ملزِمة كقائمة ما تشمله.</li><li>رسوم واشتراكات الأطراف الثالثة: Apple Developer (99 دولار سنوياً = 4,950 ج)، Google Play (25 دولار مرة واحدة = 1,250 ج)، شهادة التوقيع الإلكتروني ETA، استضافة الخوادم وترقية مواردها، الدومينات، رصيد رسائل SMS وواتساب، اشتراك Cloudflare Pro للباقة المتكاملة، وأي اشتراك CRM أو بريد بعد تجاوز الطبقة المجانية — كلها تُسدَّد من الشركة مباشرة لمصدرها بسعر يوم السداد ولا تمر عبرنا.</li><li>عمولات بوابة الدفع (2.75% + 3 ج لكل معاملة عبر Paymob) ورسوم التسوية البنكية.</li><li>أتعاب الترجمة الفنية الزراعية من مترجم متخصص (18,000–28,000 ج حسب جرد الكلمات) — نتولى الدمج والمراجعة والاتساق ولا نتولى الترجمة نفسها، لأن ترجمة مصطلحات مثل chelated و suspension و foliar و K₂O بيد مطوّر تنتج إنجليزية خاطئة على ملف موجّه لموردين أجانب.</li><li>أتعاب المصور والاستوديو والانتقالات للتصوير الاحترافي (45,000–60,000 ج) — متاح كإضافة إدارة وتنسيق بـ15,000 ج فقط.</li><li>اختبار الاختراق من جهة مستقلة (60,000–90,000 ج) — البند المضمّن في الباقة المتكاملة تشديد أمني ومراجعة داخلية موثّقة لثغرات OWASP Top 10 ينفذها فريقنا، وهي ليست اختبار اختراق مستقلاً بأي معيار مهني. نرشّح الجهة وتتعاقد الشركة معها مباشرة.</li><li>تنفيذ التكامل الفعلي مع النظام المحاسبي / ERP — المشمول في الباقة المتكاملة دراسة قابلية الربط فقط، والتنفيذ يُسعَّر بعد مخرج الدراسة ضمن نطاق معلن 60,000–140,000 ج. لا نسعّر تكاملاً ثابتاً مع نظام لم نره ولم يُذكر اسمه.</li><li>ترقية إصدار أودو الكبرى السنوية (30,000 ج لكل إصدار رئيسي) — مستثناة صراحةً من عقد الصيانة لأنها تكسر التخصيصات وقوالب الطباعة العربية وطبقة المزامنة، وهي مشروع بأيام لا بساعات.</li><li>إنتاج محتوى تسويقي أو إعلاني، وإدارة الحملات الإعلانية وميزانياتها، وكتابة مقالات المدونة الدورية.</li><li>أي ضمان لترتيب في نتائج البحث أو حجم زيارات أو معدل تحويل — ننفّذ الأساسيات التقنية والمحتوى المُحسَّن ولا نتحكم في خوارزميات جوجل ولا في المنافسة.</li><li>الاستشارة القانونية المعتمدة: نُعدّ صياغة سياسة الخصوصية وشروط الاستخدام وسياسة الاسترجاع وملحق معالجة البيانات، ويتولى مستشاركم القانوني اعتمادها ويتحمل مسؤولية المطابقة النهائية.</li><li>استخراج أي ترخيص لنقل البيانات الشخصية خارج مصر من مركز حماية البيانات (يلزم عند اختيار CRM أجنبي في باقة الإطلاق) — إجراء على الشركة، ونوفّر بديل التخزين المحلي فقط.</li><li>التسجيل في منظومة الفاتورة الإلكترونية ETA واستخراج شهادة الختم الإلكتروني وتحديد المعاملة الضريبية لكل صنف واعتمادها من مستشاركم الضريبي وأي إجراءات أمام مصلحة الضرائب — إجراءات الشركة ككيان، ونحن نتكامل مع المنظومة تقنياً فقط.</li><li>استخراج تراخيص وزارة الزراعة وأرقام تسجيل الأسمدة — نعرضها على الموقع ولا نستخرجها.</li><li>اعتماد حساب التاجر لدى بوابة الدفع والبنك، وإنشاء حسابي آبل وجوجل باسم الشركة وتوفير بطاقة دولية صالحة ومنحنا صلاحية Admin، وتوثيق حساب ميتا لواتساب بيزنس — كلها مستندات وموافقات على الشركة، وتأخير أو رفض الجهات لمستنداتها يوقف الجدول الزمني ولا يُعد إخلالاً من المورّد.</li><li>أعمال على أنظمة الشركة الداخلية أو شبكتها أو أجهزتها المكتبية، أو نقل بيانات من أنظمة قديمة لم تُذكر في وثيقة النطاق.</li><li>الدعم التشغيلي اليومي بعد انتهاء فترة الضمان (يُغطَّى بعقد الصيانة السنوي المنفصل). في حال عدم التعاقد على الصيانة تنتهي مسؤولية المورّد عن التحديثات الأمنية ومراقبة النسخ الاحتياطي بانتهاء الضمان، وتُسلَّم صلاحيات السيرفر كاملة للشركة خلال 5 أيام عمل.</li><li>إدخال المنتجات الجديدة بعد التسليم — هذه وظيفة لوحة التحكم التي نبنيها ونُدرّب فريقكم عليها؛ ويشمل عقد الصيانة إدخال حتى 10 منتجات شهرياً نيابةً عنكم وما زاد 400 ج للمنتج. وترحيل البيانات المشمول في العرض يغطي 43 منتجاً و10 خامات، وكل منتج إضافي وقت التنفيذ 400 ج.</li><li>سقوف كمية ملزِمة تمنع زحف النطاق: حتى 6 تقارير قياسية ولوحة مؤشرات واحدة (التقرير الإضافي 4,000 ج)، حتى قائمتي أسعار وثلاثة قوالب طباعة في أودو، حتى 20 اختبار وحدة ومسار E2E واحد في بند الاختبارات، وحتى دورتي رد على رفض لكل متجر تطبيقات.</li><li>مصفوفة الدعم المعلنة: Android 9 فأحدث، iOS 15 فأحدث، Chrome و Safari و Edge (آخر إصدارين) و Samsung Internet. ما دون ذلك خارج النطاق. هدف الأداء المعلن LCP أقل من 2.5 ثانية على 4G وتحمّل 200 مستخدم متزامن على الموارد المتفق عليها؛ تجاوز ذلك يستلزم ترقية موارد على الشركة.</li><li>الترجمة إلى لغات غير العربية والإنجليزية.</li><li>استرجاع بيانات أو إصلاح أعطال ناتجة عن تعديل مباشر من الشركة أو من طرف ثالث على السيرفر أو قاعدة البيانات أو الكود.</li></ol>
+  </section>
+
+  <section class="sec">
+    <div class="sec__h"><span class="idx">11</span><h2>الشروط التجارية</h2></div>
+    <ol class="terms"><li>صلاحية العرض: 21 يوماً من تاريخه (10 أغسطس 2026). المدة قصيرة عمداً بسبب تقلب سعر الصرف والتضخم.</li><li>العملة والضريبة: جميع الأسعار بالجنيه المصري وغير شاملة ضريبة القيمة المضافة 14% التي تُضاف على الفاتورة. الإجمالي شاملاً الضريبة: باقة الإطلاق 710,220 ج، باقة النمو 1,151,400 ج، الباقة المتكاملة 1,829,700 ج. شرط مسبق معلن: المورّد مسجّل لدى مصلحة الضرائب في ضريبة القيمة المضافة ومخوّل بتحصيلها وإصدار فاتورة إلكترونية معتمدة عبر منظومة ETA لكل دفعات هذا العرض — وهذا يُثبَّت في العقد لأن الحد الإلزامي للتسجيل 500,000 ج مبيعات سنوية وكل باقة في هذا العرض تتجاوزه.</li><li>الخصم والتحصيل تحت حساب الضريبة (المادة 41): يُطبَّق 3% باعتبار النشاط «خدمات تطوير برمجيات»، ويُحسب على صافي الفاتورة قبل إضافة القيمة المضافة — أي 18,690 ج على باقة الإطلاق و30,300 ج على النمو و48,150 ج على المتكاملة، فيصل للمورّد نقداً 604,310 و979,700 و1,556,850 ج على الترتيب. تلتزم الشركة بتسليم نموذج 41 مع كل دفعة وإلا يفقد المورّد حقه في خصمها. تثبيت نسبة 3% كتابةً ضروري لتفادي خصم 5% اجتهاداً.</li><li>بند سعر الصرف: البنود ذات المكوّن الدولاري محسوبة على 50 ج/دولار. تُراجَع البنود ذات المكوّن الدولاري وحدها لا العرض كله، وبسقف مراجعة 10%. الرسوم الدولارية (آبل، جوجل، أي رخص) تُسدَّد من الشركة مباشرة لمصدرها بسعر يوم السداد.</li><li>بدء المدة: تبدأ من تاريخ استلام الدفعة الأولى فعلياً في الحساب البنكي لا من تاريخ توقيع العقد، وتتوقف تلقائياً أثناء انتظار مدخلات أو اعتمادات من الشركة وتُمدَّد بنفس المدة.</li><li>الدفعات: خمس دفعات (30/20/20/15/15 = 100%) مرتبطة بتسليمات مُثبتة قابلة للمعاينة على بيئة staging لا بمرور الوقت، وتسليمة الدفعة الرابعة تتبع الباقة المتعاقد عليها كما هو منصوص في جدول الدفعات. تُستحق كل دفعة عند اعتماد الشركة كتابياً، وتُعتبر معتمدة تلقائياً بعد 7 أيام عمل من التسليم في حال عدم الرد. تُصدر الفاتورة الضريبية عند استحقاق الدفعة لا قبلها، ولا يبدأ احتساب مدة السداد إلا من تاريخ استلام الشركة للفاتورة الإلكترونية معتمدة — منعاً لتوريد ضريبة على مبلغ لم يُحصَّل.</li><li>مدة السداد: 15 يوم عمل من تاريخ الفاتورة المعتمدة. عند التأخر تُضاف 1.5% شهرياً على المبلغ المتأخر، وللمورّد الحق في تعليق العمل بعد 30 يوماً من التأخر بإخطار مكتوب مع تمديد الجدول بمدة التعليق.</li><li>غرامة تأخير من جانب المورّد (بند مضاف لتحقيق التوازن التعاقدي): 0</li><li>سقف المسؤولية (بند مضاف): سقف المسؤولية الإجمالية للمورّد = إجمالي المبالغ المسددة فعلياً بموجب هذا العقد (بحد أقصى 623,000 أو 1,010,000 أو 1,605,000 ج حسب الباقة)، مع استبعاد الأضرار غير المباشرة وفوات الربح وفقد البيانات، وباستبعاد صريح لأي ضرر زراعي أو محصولي ناتج عن بيانات فنية أو معدلات استخدام قدّمتها الشركة أو اعتمدتها — وهو استبعاد لازم لأن النظام يعرض معدلات رش وتسميد لمنتجات كيماوية</li><li>النسخة العربية من العقد والعرض هي المعتمدة عند أي تعارض في التفسير.</li><li>حماية البيانات (بند مضاف): يُبرم ملحق معالجة بيانات (DPA) يحدد الشركة متحكماً والمورّد معالجاً، وأغراض المعالجة ومددها، وإتلاف البيانات عند انتهاء العلاقة، وإخطار أي اختراق خلال 72 ساعة — التزاماً بقانون 151/2018</li><li>«العيب» انحراف عن مواصفة مكتوبة في وثيقة النطاق ويُصلَح مجاناً وبلا حد؛ و«التغيير» أي طلب لسلوك أو شاشة أو حقل غير منصوص عليه فيها ويُقدَّر بأيام عمل ويُسعَّر بفئة البند المطلوب من جدول الأسعار اليومية (6,000 / 7,500 / 9,500 ج لليوم) بأمر تغيير مكتوب يُعتمد قبل التنفيذ بسعره وأثره الزمني معاً. ربط أمر التغيير بفئة البند بدل رقم واحد يمنع مراجحة حذف بنود تخصصية وإعادتها بسعر أرخص.</li><li>الضمان: 3 شهور إصلاح أعطال مجاني لباقتي الإطلاق والنمو بزمن استجابة أقصاه 48 ساعة عمل، و6 شهور للباقة المتكاملة مع SLA (4 ساعات للأعطال الحرجة و24 ساعة عمل للعادية) وجزاء إخلال بالـSLA قدره 2,500 ج عن كل واقعة تجاوز موثّقة بحد أقصى 25,000 ج في السنة. يغطي الضمان الأخطاء البرمجية والانحراف عن المواصفات الموقّعة فقط. عند التعاقد على ملحق ترقية إلى باقة أعلى أثناء فترة الضمان، يُجمَّد ضمان المكوّنات المسلَّمة ويُستأنف من تاريخ إطلاق المرحلة التالية.</li><li>الزيارات الميدانية والسفر: تشمل الأسعار زيارتين حضوريتين (ثلاثاً في الباقة المتكاملة) شاملة الانتقال والإقامة بين الغردقة والمنيا الجديدة؛ ما زاد يُسعَّر 6,000 ج لليوم الميداني إضافة إلى التكاليف الفعلية. باقي الجلسات والاجتماعات عن بُعد.</li><li>الملكية الفكرية ورخصة الاستخدام: تُمنح الشركة رخصة استخدام غير حصرية للمنجَز اعتباراً من كل دفعة مسددة، وتنتقل الملكية الكاملة والحصرية للكود المصدري وقاعدة البيانات والتصاميم والوثائق عند سداد الدفعة الأخيرة، وتُسلَّم على مستودع Git يملكه العميل. الدومين والسيرفر وحسابات المتاجر وبوابات الدفع والـCRM وأودو تُسجَّل جميعاً باسم أجروميد. المكوّنات مفتوحة المصدر تبقى بتراخيصها الأصلية بلا أي رسوم. تسليم بيانات الاعتماد يتم عبر مدير أسرار أو ملف مشفّر بكلمة تُسلَّم بقناة منفصلة وبمحضر تسليم موقّع — لا تُرسل مفاتيح إنتاج على واتساب.</li><li>لا حبس تقني: لا يحتفظ المورّد بأي أصل أو مفتاح أو رخصة تمنع الشركة من نقل المشروع لأي مطوّر آخر في أي وقت. اختيار Odoo تحديداً يعزز ذلك — سوق مطوّري أودو في مصر كبير جداً. وعند انتهاء عقد الصيانة أو التعاقد تبقى نسخة أودو وقاعدتها كاملة على سيرفر الشركة مع توثيق تشغيلها.</li><li>السرية: كل بيانات الشركة وأسعارها وقوائم عملائها وموردّيها سرّية ولا تُستخدم إلا لأغراض التنفيذ، ويحق للمورّد ذكر اسم المشروع في أعماله السابقة دون كشف أي بيانات تجارية إلا بموافقة كتابية.</li><li>مسؤوليات الشركة التي يتوقف عليها الجدول الزمني: (1) تسليم الأسعار الفعلية للـ43 منتجاً بكل عبوة وشريحة — كلها اليوم بلا سعر؛ (2) تأكيد نسبة البورون في «جرومو فروتكس» (الكتالوج يذكر 40% وهو غير واقعي لسماد سائل، والمعروض 4% مؤقتاً)؛ (3) القوائم الحقيقية للخامات المستوردة بأرقام الأصناف والمناشئ؛ (4) اعتماد المعاملة الضريبية لكل صنف (خاضع/صفري/معفى) من مستشاركم الضريبي قبل بدء المرحلة 1؛ (5) اعتماد المحتوى تحريرياً وزراعياً؛ (6) القواعد الزراعية لحاسبة البرنامج السمادي على نموذجنا؛ (7) صور المنتجات والمصنع النهائية إن لم تُطلب جلسة التصوير؛ (8) مستندات اعتماد بوابة الدفع؛ (9) بيانات التسجيل في منظومة ETA وشهادة الختم الإلكتروني؛ (10) بدء استخراج رقم D-U-N-S في اليوم الأول — مجاني لكنه يستغرق حتى 30 يوم عمل. أي تأخير يؤجل الدفعة والتسليمة المرتبطة به بنفس المدة.</li><li>التعليق والإنهاء: الإنهاء بإخطار مكتوب قبل 15 يوماً، ويُسدَّد للمورّد ما أُنجز فعلياً حتى تاريخ الإخطار محسوباً ببنود الجدول التفصيلي، ويُسلَّم الكود والوثائق المنجزة للشركة كاملة. التوقف بسبب الشركة أكثر من 30 يوماً يُنهي جدول التنفيذ الحالي، ويخضع الاستئناف لجدول جديد ورسوم إعادة تعبئة موارد قدرها 15,000 ج.</li></ol>
+  </section>
+
+  <section class="sec">
+    <div class="sign">
+      <h2 style="font-size:19px;">الاعتماد والتعاقد</h2>
+      <p style="margin-top:10px; color:var(--muted); font-size:14px;">باعتماد هذا العرض تُحدَّد الباقة المتعاقد عليها وتبدأ إجراءات توقيع العقد ووثيقة النطاق. تبدأ المدة الزمنية من تاريخ استلام الدفعة الأولى فعلياً.</p>
+      <div class="sign__grid">
+        <div class="sign__box">
+          <strong>عن شركة أجروميد للتنمية الزراعية والصناعية</strong>
+          <div class="sign__line">الباقة المعتمدة</div>
+          <div class="sign__line">الاسم والصفة</div>
+          <div class="sign__line">التوقيع والختم</div>
+          <div class="sign__line">التاريخ</div>
+        </div>
+        <div class="sign__box">
+          <strong>عن شركة ديم</strong>
+          <div class="sign__line">الاسم والصفة</div>
+          <div class="sign__line">التوقيع والختم</div>
+          <div class="sign__line">التاريخ</div>
+          <div class="sign__line">بيانات التواصل</div>
+        </div>
+      </div>
+      <div class="foot">
+        <span>شركة ديم — حلول ويب وأنظمة أعمال</span>
+        <span>عرض رقم <span class="n">DEEM-2026-0814</span> · صالح حتى <span class="n">31</span> أغسطس <span class="n">2026</span></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<button class="printbtn" onclick="window.print()" type="button">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 9V4h10v5M7 18H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2" stroke-linecap="round" stroke-linejoin="round"/><rect x="7" y="15" width="10" height="6" rx="1.5"/></svg>
+  حفظ نسخة PDF
+</button>
+
+</body>
+</html>

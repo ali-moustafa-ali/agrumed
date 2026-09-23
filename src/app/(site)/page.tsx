@@ -24,7 +24,7 @@ const catIcons = {
 
 const advIcons = [IconShield, IconFlask, IconCheck, IconDrop, IconShield, IconSupport];
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const [catRows, featuredRows] = await Promise.all([getCategories(), getFeaturedProducts(8)]);

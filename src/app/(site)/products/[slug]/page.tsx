@@ -6,14 +6,16 @@ import PageHeader from "@/components/PageHeader";
 import ProductCard from "@/components/ProductCard";
 import ProductImage from "@/components/ProductImage";
 import { IconCheck, IconLeaf, IconPhone } from "@/components/icons";
-import { getAllProductSlugs, getCategories, getProductBySlug, getPublishedProducts } from "@/lib/queries";
+import { getCategories, getProductBySlug, getPublishedProducts } from "@/lib/queries";
 import { toProduct } from "@/lib/catalog";
 import { site } from "@/lib/site";
 
 export const revalidate = 300;
 
-export async function generateStaticParams() {
-  return (await getAllProductSlugs()).map((p) => ({ slug: p.slug }));
+// لا نولّد الصفحات وقت البناء حتى لا يعتمد البناء على قاعدة البيانات؛
+// تُبنى عند أول طلب ثم تُخزَّن مؤقتاً وتُجدَّد عند تعديلها من لوحة التحكم.
+export function generateStaticParams() {
+  return [];
 }
 
 export async function generateMetadata({

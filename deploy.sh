@@ -28,7 +28,9 @@ for i in $(seq 1 40); do
   sleep 1
 done
 
-docker build -q \
+# البناء يحتاج الوصول لقاعدة البيانات لتوليد الصفحات، والباني الكلاسيكي
+# وحده يدعم --network (BuildKit لا يدعم الشبكات المخصصة)
+DOCKER_BUILDKIT=0 docker build --network coolify -q \
   --build-arg DATABASE_URL="$DATABASE_URL" \
   --build-arg SESSION_SECRET="$SESSION_SECRET" \
   -t "${APP}:latest" .

@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import ProductBrowser from "@/components/ProductBrowser";
 import PageHeader from "@/components/PageHeader";
-import { allProducts, categories } from "@/lib/products";
+import { getCategories, getPublishedProducts } from "@/lib/queries";
+import { toProduct } from "@/lib/catalog";
 import type { CategoryId } from "@/lib/types";
+
+export const revalidate = 300;
 
 export const metadata: Metadata = {
   title: "المنتجات",
@@ -15,7 +18,8 @@ export default async function ProductsPage({
   searchParams: Promise<{ cat?: string; q?: string }>;
 }) {
   const { cat, q } = await searchParams;
-  const valid = categories.some((c) => c.id === cat);
+  const [rows, cats] = await Promise.all([getPublishedProducts(), getCategories()]);
+  const valid = cats.some((c) => c.slug === cat);
 
   return (
     <>
@@ -27,7 +31,7 @@ export default async function ProductsPage({
       />
       <div className="mx-auto max-w-7xl px-4 py-10">
         <ProductBrowser
-          products={allProducts}
+          products={rows.map(toProduct)}
           initialCategory={valid ? (cat as CategoryId) : "all"}
           initialQuery={q ?? ""}
         />

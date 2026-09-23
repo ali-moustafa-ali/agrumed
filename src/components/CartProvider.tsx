@@ -1,14 +1,59 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useMemo, useState, useSyncExternalStore } from "react";
 import type { CartLine } from "@/lib/types";
 
-const STORAGE_KEY = "agromeed.quote.v1";
+const STORAGE_KEY = "agromeed.quote.v2";
+const EMPTY: CartLine[] = [];
+
+/**
+ * السلة تعيش في مخزن خارجي مدعوم بـ localStorage، ويقرأها React عبر
+ * useSyncExternalStore — فلا حاجة لتحديث الحالة داخل effect عند الإماهة.
+ */
+let state: CartLine[] = EMPTY;
+let loaded = false;
+const listeners = new Set<() => void>();
+
+function load() {
+  if (loaded || typeof window === "undefined") return;
+  loaded = true;
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const parsed = raw ? (JSON.parse(raw) as unknown) : null;
+    if (Array.isArray(parsed)) {
+      state = parsed.filter(
+        (l): l is CartLine =>
+          !!l && typeof l === "object" && typeof (l as CartLine).slug === "string",
+      );
+    }
+  } catch {
+    // بيانات تالفة في التخزين — نبدأ بسلة فارغة
+  }
+}
+
+function emit(next: CartLine[]) {
+  state = next;
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+  } catch {
+    // التخزين ممتلئ أو محظور — السلة تبقى في الذاكرة
+  }
+  listeners.forEach((l) => l());
+}
+
+function subscribe(cb: () => void) {
+  load();
+  listeners.add(cb);
+  return () => listeners.delete(cb);
+}
+
+const getSnapshot = () => state;
+const getServerSnapshot = () => EMPTY;
 
 type CartContextValue = {
   lines: CartLine[];
   count: number;
-  add: (slug: string, size: string, qty?: number) => void;
+  add: (line: Omit<CartLine, "qty">, qty?: number) => void;
   remove: (slug: string, size: string) => void;
   setQty: (slug: string, size: string, qty: number) => void;
   clear: () => void;
@@ -20,42 +65,28 @@ type CartContextValue = {
 const CartContext = createContext<CartContextValue | null>(null);
 
 export function CartProvider({ children }: { children: React.ReactNode }) {
-  const [lines, setLines] = useState<CartLine[]>([]);
+  const lines = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const [isOpen, setIsOpen] = useState(false);
-  const [hydrated, setHydrated] = useState(false);
 
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      if (raw) setLines(JSON.parse(raw));
-    } catch {
-      /* تجاهل بيانات تالفة */
-    }
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    if (hydrated) localStorage.setItem(STORAGE_KEY, JSON.stringify(lines));
-  }, [lines, hydrated]);
-
-  const add = useCallback((slug: string, size: string, qty = 1) => {
-    setLines((prev) => {
-      const i = prev.findIndex((l) => l.slug === slug && l.size === size);
-      if (i === -1) return [...prev, { slug, size, qty }];
-      const next = [...prev];
+  const add = useCallback((line: Omit<CartLine, "qty">, qty = 1) => {
+    const i = state.findIndex((l) => l.slug === line.slug && l.size === line.size);
+    if (i === -1) {
+      emit([...state, { ...line, qty }]);
+    } else {
+      const next = [...state];
       next[i] = { ...next[i], qty: next[i].qty + qty };
-      return next;
-    });
+      emit(next);
+    }
     setIsOpen(true);
   }, []);
 
   const remove = useCallback((slug: string, size: string) => {
-    setLines((prev) => prev.filter((l) => !(l.slug === slug && l.size === size)));
+    emit(state.filter((l) => !(l.slug === slug && l.size === size)));
   }, []);
 
   const setQty = useCallback((slug: string, size: string, qty: number) => {
-    setLines((prev) =>
-      prev
+    emit(
+      state
         .map((l) => (l.slug === slug && l.size === size ? { ...l, qty } : l))
         .filter((l) => l.qty > 0),
     );
@@ -68,7 +99,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       add,
       remove,
       setQty,
-      clear: () => setLines([]),
+      clear: () => emit([]),
       isOpen,
       open: () => setIsOpen(true),
       close: () => setIsOpen(false),

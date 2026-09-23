@@ -1,29 +1,49 @@
 #!/usr/bin/env bash
-# إعادة نشر موقع أجروميد على الخادم — يُشغَّل على السيرفر مباشرة:
+# نشر موقع أجروميد كاملاً (المتجر + لوحة التحكم + قاعدة البيانات).
 #   ssh root@187.77.67.160 'bash /root/agromeed/deploy.sh'
 set -euo pipefail
 
 APP=agromeed-app
+DB=agromeed-db
 DIR=/root/agromeed
 DOMAIN=arg.aligm.cloud
 REPO=https://github.com/ali-moustafa-ali/agrumed.git
+ENVF="$DIR/db.env"
 
-if [ -d "$DIR/.git" ]; then
-  cd "$DIR"
-  git fetch --all -q
-  git reset --hard origin/main -q
+[ -f "$ENVF" ] || { echo "✗ ملف الإعدادات $ENVF مفقود"; exit 1; }
+. "$ENVF"
+DATABASE_URL="postgres://agromeed:${POSTGRES_PASSWORD}@${DB}:5432/agromeed"
+
+if [ -d "$DIR/repo/.git" ]; then
+  cd "$DIR/repo" && git fetch --all -q && git reset --hard origin/main -q
 else
-  git clone -q "$REPO" "$DIR"
-  cd "$DIR"
+  git clone -q "$REPO" "$DIR/repo" && cd "$DIR/repo"
 fi
+echo "› البناء من $(git log --oneline -1)"
 
-echo "› building $(git log --oneline -1)"
-docker build -q -t "${APP}:latest" .
+# قاعدة البيانات يجب أن تكون جاهزة قبل البناء (الصفحات الثابتة تقرأ منها)
+docker start "$DB" >/dev/null 2>&1 || true
+for i in $(seq 1 40); do
+  docker exec "$DB" pg_isready -U agromeed -d agromeed >/dev/null 2>&1 && break
+  sleep 1
+done
+
+docker build -q \
+  --build-arg DATABASE_URL="$DATABASE_URL" \
+  --build-arg SESSION_SECRET="$SESSION_SECRET" \
+  -t "${APP}:latest" .
+
+echo "› تطبيق ترحيلات قاعدة البيانات"
+docker run --rm --network coolify \
+  -e DATABASE_URL="$DATABASE_URL" \
+  -w /app "${APP}:latest" \
+  node_modules/.bin/drizzle-kit migrate
 
 docker rm -f "$APP" >/dev/null 2>&1 || true
-
 docker run -d --name "$APP" --restart unless-stopped --network coolify \
   -e NODE_ENV=production \
+  -e DATABASE_URL="$DATABASE_URL" \
+  -e SESSION_SECRET="$SESSION_SECRET" \
   --label "traefik.enable=true" \
   --label "traefik.http.middlewares.gzip.compress=true" \
   --label "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https" \
@@ -43,4 +63,4 @@ docker run -d --name "$APP" --restart unless-stopped --network coolify \
 
 sleep 5
 docker ps --filter "name=${APP}" --format "{{.Names}} → {{.Status}}"
-echo "› https://${DOMAIN}"
+echo "› https://${DOMAIN}  |  لوحة التحكم: https://${DOMAIN}/admin"

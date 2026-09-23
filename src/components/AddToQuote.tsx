@@ -18,7 +18,15 @@ export default function AddToQuote({
   const [done, setDone] = useState(false);
 
   function handleAdd() {
-    add(product.slug, size, qty);
+    add(
+      {
+        slug: product.slug,
+        name: product.name,
+        image: product.category === "raw" ? undefined : `/products/${product.slug}.jpg`,
+        size,
+      },
+      qty,
+    );
     setDone(true);
     setTimeout(() => setDone(false), 1600);
   }

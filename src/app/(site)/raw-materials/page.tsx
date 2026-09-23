@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import ProductBrowser from "@/components/ProductBrowser";
 import { IconCheck, IconShield, IconTruck, IconFlask } from "@/components/icons";
-import { rawMaterials } from "@/lib/products";
+import { getPublishedProducts } from "@/lib/queries";
+import { toProduct } from "@/lib/catalog";
 
 export const metadata: Metadata = {
   title: "الخامات الزراعية",
@@ -28,7 +29,11 @@ const points = [
   },
 ];
 
-export default function RawMaterialsPage() {
+export const revalidate = 300;
+
+export default async function RawMaterialsPage() {
+  const rows = await getPublishedProducts();
+  const rawMaterials = rows.filter((p) => p.categorySlug === "raw").map(toProduct);
   return (
     <>
       <PageHeader

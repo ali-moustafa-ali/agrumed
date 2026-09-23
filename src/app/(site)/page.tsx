@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
-import { categories, featuredProducts } from "@/lib/products";
+import { getCategories, getFeaturedProducts } from "@/lib/queries";
+import { toCategory, toProduct } from "@/lib/catalog";
 import { advantages, sectors, site } from "@/lib/site";
 import {
   IconArrow,
@@ -23,7 +24,12 @@ const catIcons = {
 
 const advIcons = [IconShield, IconFlask, IconCheck, IconDrop, IconShield, IconSupport];
 
-export default function Home() {
+export const revalidate = 300;
+
+export default async function Home() {
+  const [catRows, featuredRows] = await Promise.all([getCategories(), getFeaturedProducts(8)]);
+  const categories = catRows.map(toCategory);
+  const featuredProducts = featuredRows.map(toProduct);
   return (
     <>
       {/* Hero */}

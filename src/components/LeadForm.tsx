@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useCart } from "./CartProvider";
-import { getProduct } from "@/lib/products";
 import { IconCheck } from "./icons";
 
 const field =
@@ -11,27 +10,42 @@ const field =
 export type LeadFormMode = "contact" | "quote";
 
 /**
- * نموذج التقاط بيانات العميل (Lead).
- * واجهة فقط — جاهز للربط لاحقاً بنظام الـ CRM عبر نقطة نهاية واحدة.
+ * نموذج التقاط بيانات العميل (Lead) — يُرسل إلى /api/leads فيُحفظ في
+ * قاعدة البيانات ويظهر فوراً في لوحة التحكم.
  */
 export default function LeadForm({ mode = "contact" }: { mode?: LeadFormMode }) {
   const { lines, clear } = useCart();
   const [sent, setSent] = useState(false);
   const [ref, setRef] = useState("");
+  const [pending, setPending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (pending) return;
+    setPending(true);
+    setError(null);
+
     const data = Object.fromEntries(new FormData(e.currentTarget));
-    const payload = {
-      ...data,
-      source: mode,
-      items: lines.map((l) => ({ ...l, name: getProduct(l.slug)?.name })),
-    };
-    // نقطة الربط المستقبلية مع الـ CRM
-    console.info("[AGROMEED lead]", payload);
-    setRef(`AGM-${String(Math.floor(Math.random() * 9000) + 1000)}`);
-    setSent(true);
-    if (mode === "quote") clear();
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ...data, source: mode, items: lines }),
+      });
+      const json = (await res.json()) as { ok: boolean; ref?: string; error?: string };
+      if (!res.ok || !json.ok) {
+        setError(json.error ?? "تعذّر إرسال الطلب. حاول مرة أخرى.");
+        return;
+      }
+      setRef(json.ref ?? "");
+      setSent(true);
+      if (mode === "quote") clear();
+    } catch {
+      setError("تعذّر الاتصال بالخادم. تأكد من اتصالك بالإنترنت.");
+    } finally {
+      setPending(false);
+    }
   }
 
   if (sent) {
@@ -58,6 +72,15 @@ export default function LeadForm({ mode = "contact" }: { mode?: LeadFormMode }) 
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {/* حقل فخ للبوتات — مخفي عن المستخدمين وقارئات الشاشة */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute h-0 w-0 opacity-0"
+      />
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-sm font-bold text-ink-700">الاسم بالكامل *</label>
@@ -129,7 +152,7 @@ export default function LeadForm({ mode = "contact" }: { mode?: LeadFormMode }) 
           <ul className="space-y-1 text-ink-500">
             {lines.map((l) => (
               <li key={`${l.slug}-${l.size}`}>
-                • {getProduct(l.slug)?.name} — {l.size} × <span className="nums">{l.qty}</span>
+                • {l.name} — {l.size} × <span className="nums">{l.qty}</span>
               </li>
             ))}
           </ul>
@@ -141,11 +164,22 @@ export default function LeadForm({ mode = "contact" }: { mode?: LeadFormMode }) 
         أوافق على أن يتواصل معي فريق أجروميد بخصوص هذا الطلب.
       </label>
 
+      {error && (
+        <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+          {error}
+        </p>
+      )}
+
       <button
         type="submit"
-        className="w-full rounded-xl bg-brand-600 py-4 font-extrabold text-white transition hover:bg-brand-700"
+        disabled={pending}
+        className="w-full rounded-xl bg-brand-600 py-4 font-extrabold text-white transition hover:bg-brand-700 disabled:opacity-60"
       >
-        {mode === "quote" ? "إرسال طلب عرض السعر" : "إرسال الرسالة"}
+        {pending
+          ? "جارٍ الإرسال…"
+          : mode === "quote"
+            ? "إرسال طلب عرض السعر"
+            : "إرسال الرسالة"}
       </button>
     </form>
   );

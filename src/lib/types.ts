@@ -32,6 +32,9 @@ export type Product = {
 
 export type CartLine = {
   slug: string;
+  /** لقطة من الاسم وقت الإضافة — حتى لا تعتمد السلة على الكتالوج */
+  name: string;
+  image?: string;
   size: string;
   qty: number;
 };

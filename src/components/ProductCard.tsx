@@ -27,6 +27,13 @@ export default function ProductCard({ product }: { product: Product }) {
         </Link>
         <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-ink-500">{product.tagline}</p>
 
+        {product.price !== null && (
+          <p className="mt-2 text-lg font-black text-brand-700">
+            <span className="nums">{product.price.toLocaleString("en-US")}</span>{" "}
+            <span className="text-xs font-bold text-ink-500">ج.م</span>
+          </p>
+        )}
+
         <div className="mt-3 flex flex-wrap gap-1.5">
           {product.sizes.map((s) => (
             <span

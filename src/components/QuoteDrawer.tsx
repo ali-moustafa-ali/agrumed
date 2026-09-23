@@ -1,9 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import CartThumb from "./CartThumb";
 import { useCart } from "./CartProvider";
-import { getProduct } from "@/lib/products";
-import ProductImage from "./ProductImage";
 import { IconClose, IconCart } from "./icons";
 
 export default function QuoteDrawer() {
@@ -51,15 +50,13 @@ export default function QuoteDrawer() {
           <>
             <ul className="flex-1 divide-y divide-sand-200 overflow-y-auto px-5">
               {lines.map((line) => {
-                const p = getProduct(line.slug);
-                if (!p) return null;
                 return (
                   <li key={`${line.slug}-${line.size}`} className="flex gap-3 py-4">
                     <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl border border-sand-200 bg-white">
-                      <ProductImage product={p} sizes="80px" className="p-1" />
+                      <CartThumb line={line} />
                     </div>
                     <div className="flex-1">
-                      <p className="font-bold text-ink-900">{p.name}</p>
+                      <p className="font-bold text-ink-900">{line.name}</p>
                       <p className="text-xs text-ink-500">{line.size}</p>
                       <div className="mt-2 flex items-center gap-2">
                         <div className="flex items-center rounded-lg border border-sand-200">

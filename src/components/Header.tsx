@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { nav, site } from "@/lib/site";
 import { useCart } from "./CartProvider";
 import QuoteDrawer from "./QuoteDrawer";
@@ -16,7 +16,6 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [q, setQ] = useState("");
 
-  useEffect(() => setMenuOpen(false), [pathname]);
 
   function submitSearch(e: React.FormEvent) {
     e.preventDefault();
@@ -112,6 +111,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                onClick={() => setMenuOpen(false)}
                 className="block rounded-lg px-3 py-2.5 font-semibold text-ink-700 hover:bg-sand-100"
               >
                 {item.label}

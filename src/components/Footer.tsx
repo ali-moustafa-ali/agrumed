@@ -1,10 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { categories } from "@/lib/products";
+import { getCategories } from "@/lib/queries";
+import { toCategory } from "@/lib/catalog";
 import { nav, site } from "@/lib/site";
 import { IconMail, IconPhone, IconPin } from "./icons";
 
-export default function Footer() {
+export default async function Footer() {
+  const categories = (await getCategories()).map(toCategory);
   return (
     <footer className="mt-24 bg-brand-800 text-brand-100">
       <div className="leaf-divider h-1.5" />

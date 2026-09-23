@@ -6,11 +6,14 @@ import PageHeader from "@/components/PageHeader";
 import ProductCard from "@/components/ProductCard";
 import ProductImage from "@/components/ProductImage";
 import { IconCheck, IconLeaf, IconPhone } from "@/components/icons";
-import { allProducts, getCategory, getProduct } from "@/lib/products";
+import { getAllProductSlugs, getCategories, getProductBySlug, getPublishedProducts } from "@/lib/queries";
+import { toProduct } from "@/lib/catalog";
 import { site } from "@/lib/site";
 
-export function generateStaticParams() {
-  return allProducts.map((p) => ({ slug: p.slug }));
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  return (await getAllProductSlugs()).map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({
@@ -19,20 +22,23 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProduct(slug);
-  if (!product) return { title: "منتج غير موجود" };
-  return { title: product.name, description: product.tagline };
+  const row = await getProductBySlug(slug);
+  if (!row) return { title: "منتج غير موجود" };
+  return { title: row.name, description: row.tagline };
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const product = getProduct(slug);
-  if (!product) notFound();
+  const row = await getProductBySlug(slug);
+  if (!row || !row.published) notFound();
 
-  const cat = getCategory(product.category);
-  const related = allProducts
-    .filter((p) => p.category === product.category && p.slug !== product.slug)
-    .slice(0, 4);
+  const product = toProduct(row);
+  const [cats, all] = await Promise.all([getCategories(), getPublishedProducts()]);
+  const cat = cats.find((c) => c.slug === product.category);
+  const related = all
+    .filter((p) => p.categorySlug === product.category && p.slug !== product.slug)
+    .slice(0, 4)
+    .map(toProduct);
 
   return (
     <>
@@ -83,14 +89,34 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
             <div className="mt-6 rounded-2xl border border-sand-200 bg-sand-50 p-5">
               <p className="text-sm font-bold text-ink-700">السعر</p>
-              <p className="mt-1 text-xl font-black text-brand-700">السعر عند الطلب</p>
-              <p className="mt-1.5 text-xs leading-relaxed text-ink-500">
-                يُحدد السعر حسب الكمية وجهة التوريد. أضف المنتج لطلب عرض السعر أو اتصل بنا مباشرة على{" "}
-                <a href={`tel:${site.phoneDial}`} className="nums font-bold text-brand-700">
-                  {site.phone}
-                </a>
-                .
-              </p>
+              {product.price === null ? (
+                <>
+                  <p className="mt-1 text-xl font-black text-brand-700">السعر عند الطلب</p>
+                  <p className="mt-1.5 text-xs leading-relaxed text-ink-500">
+                    يُحدد السعر حسب الكمية وجهة التوريد. أضف المنتج لطلب عرض السعر أو اتصل بنا
+                    مباشرة على{" "}
+                    <a href={`tel:${site.phoneDial}`} className="nums font-bold text-brand-700">
+                      {site.phone}
+                    </a>
+                    .
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="mt-1 text-3xl font-black text-brand-700">
+                    <span className="nums">{product.price.toLocaleString("en-US")}</span>{" "}
+                    <span className="text-base font-bold text-ink-500">ج.م</span>
+                  </p>
+                  <p className="mt-1.5 text-xs leading-relaxed text-ink-500">
+                    السعر للعبوة الواحدة، غير شامل الشحن. تتوفر أسعار جملة حسب الكمية — اطلب عرض
+                    سعر أو اتصل على{" "}
+                    <a href={`tel:${site.phoneDial}`} className="nums font-bold text-brand-700">
+                      {site.phone}
+                    </a>
+                    .
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="mt-6">

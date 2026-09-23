@@ -27,12 +27,10 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# ملفات الترحيل تُطبَّق عند الإقلاع
+# ملفات SQL يقرأها الترحيل عند إقلاع الخادم
 COPY --from=builder --chown=nextjs:nodejs /app/drizzle ./drizzle
-COPY --from=builder --chown=nextjs:nodejs /app/scripts/migrate.mjs ./scripts/migrate.mjs
-COPY --from=builder --chown=nextjs:nodejs /app/scripts/start.sh ./scripts/start.sh
 
 USER nextjs
 EXPOSE 3000
 
-CMD ["sh", "scripts/start.sh"]
+CMD ["node", "server.js"]

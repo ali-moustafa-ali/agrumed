@@ -5,11 +5,6 @@ const nextConfig: NextConfig = {
   output: "standalone",
   // شعار التطوير يتعارض مع زر واتساب أثناء عرض الموقع على العميل
   devIndicators: false,
-  // مُرحِّل drizzle لا يستورده التطبيق، فلا يتتبّعه Next تلقائياً —
-  // ونحتاجه في صورة التشغيل لتطبيق الترحيلات عند الإقلاع
-  outputFileTracingIncludes: {
-    "/*": ["./node_modules/drizzle-orm/postgres-js/migrator.js"],
-  },
   async rewrites() {
     return [
       // عرض السعر مستند مستقل بهويته الخاصة — يُقدَّم خارج تخطيط الموقع

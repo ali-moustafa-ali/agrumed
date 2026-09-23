@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { logout } from "@/lib/actions/auth";
 import { can, ROLE_LABEL, type Role } from "@/lib/permissions";
-import { IcBox, IcClose, IcGrid, IcLog, IcMenu, IcOut, IcTag, IcUsers } from "./icons";
+import { IcBox, IcClose, IcGear, IcGrid, IcLog, IcMenu, IcOut, IcTag, IcUsers } from "./icons";
 
 type NavItem = { href: string; label: string; icon: typeof IcGrid; permission?: string };
 
@@ -15,6 +15,7 @@ const NAV: NavItem[] = [
   { href: "/admin/products", label: "المنتجات", icon: IcBox, permission: "products:write" },
   { href: "/admin/categories", label: "الأقسام", icon: IcTag, permission: "categories:write" },
   { href: "/admin/activity", label: "سجل النشاط", icon: IcLog },
+  { href: "/admin/settings", label: "الإعدادات", icon: IcGear },
 ];
 
 export default function Shell({

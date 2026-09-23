@@ -152,9 +152,17 @@ export const auditLog = pgTable(
   (t) => [index("audit_created_idx").on(t.createdAt)],
 );
 
+/** إعدادات تشغيلية يحرّرها المدير من اللوحة */
+export const settings = pgTable("settings", {
+  key: varchar("key", { length: 60 }).primaryKey(),
+  value: text("value").notNull().default(""),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+});
+
 export type Product = typeof products.$inferSelect;
 export type NewProduct = typeof products.$inferInsert;
 export type Category = typeof categories.$inferSelect;
 export type Lead = typeof leads.$inferSelect;
 export type LeadNote = typeof leadNotes.$inferSelect;
 export type AdminUser = typeof adminUsers.$inferSelect;
+export type Setting = typeof settings.$inferSelect;

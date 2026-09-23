@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
+import { after } from "next/server";
 import { createLead } from "@/lib/actions/leads";
 import { getPublishedProducts } from "@/lib/queries";
+import { sendMail } from "@/lib/mail";
+import { customerConfirmation, salesNotification, type LeadMailData } from "@/lib/mail-templates";
+import { getSettings } from "@/lib/settings";
 
 /** حدّ بسيط لمعدل الطلبات في ذاكرة العملية — يوقف الإغراق الآلي. */
 const hits = new Map<string, { n: number; reset: number }>();
@@ -78,16 +82,45 @@ export async function POST(request: Request) {
     });
   }
 
+  const email = clean(body.email, 160) || null;
+  const source = clean(body.source) === "quote" ? "quote" : "contact";
+
   const lead = await createLead({
     name,
     phone,
-    email: clean(body.email, 160) || null,
+    email,
     company: clean(body.company, 200) || null,
     governorate: clean(body.governorate, 80) || null,
     customerType: clean(body.type, 80) || null,
     message: clean(body.message, 4000) || null,
-    source: clean(body.source) === "quote" ? "quote" : "contact",
+    source,
     items,
+  });
+
+  const mailData: LeadMailData = {
+    ref: lead.ref,
+    name,
+    phone,
+    email,
+    company: clean(body.company, 200) || null,
+    governorate: clean(body.governorate, 80) || null,
+    customerType: clean(body.type, 80) || null,
+    message: clean(body.message, 4000) || null,
+    source,
+    items,
+  };
+
+  // البريد يُرسل بعد الرد: العميل لا ينتظر SMTP، وفشل الإرسال لا يُفقد الطلب
+  after(async () => {
+    const cfg = await getSettings();
+    if (cfg.notifySales && cfg.salesEmails.length) {
+      const m = salesNotification(mailData);
+      await sendMail({ to: cfg.salesEmails, subject: m.subject, html: m.html, replyTo: email ?? undefined });
+    }
+    if (cfg.notifyCustomer && email) {
+      const m = customerConfirmation(mailData);
+      await sendMail({ to: email, subject: m.subject, html: m.html });
+    }
   });
 
   return NextResponse.json({ ok: true, ref: lead.ref });

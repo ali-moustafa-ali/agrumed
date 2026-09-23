@@ -28,18 +28,32 @@ for i in $(seq 1 40); do
   sleep 1
 done
 
-# البناء يحتاج الوصول لقاعدة البيانات لتوليد الصفحات، والباني الكلاسيكي
-# وحده يدعم --network (BuildKit لا يدعم الشبكات المخصصة)
-DOCKER_BUILDKIT=0 docker build --network coolify -q \
+# صورة الأدوات تحمل كل التبعيات — منها يُشغَّل الترحيل والتهيئة
+echo "› بناء صورة الأدوات"
+DOCKER_BUILDKIT=0 docker build --network coolify -q --target builder \
   --build-arg DATABASE_URL="$DATABASE_URL" \
   --build-arg SESSION_SECRET="$SESSION_SECRET" \
-  -t "${APP}:latest" .
+  -t "${APP}-tools:latest" .
 
 echo "› تطبيق ترحيلات قاعدة البيانات"
 docker run --rm --network coolify \
   -e DATABASE_URL="$DATABASE_URL" \
-  -w /app "${APP}:latest" \
-  node_modules/.bin/drizzle-kit migrate
+  "${APP}-tools:latest" npx drizzle-kit migrate
+
+echo "› تهيئة البيانات الأولية (آمن للتكرار)"
+docker run --rm --network coolify \
+  -e DATABASE_URL="$DATABASE_URL" \
+  -e ADMIN_EMAIL="${ADMIN_EMAIL:-}" \
+  -e ADMIN_PASSWORD="${ADMIN_PASSWORD:-}" \
+  -e ADMIN_NAME="${ADMIN_NAME:-مدير النظام}" \
+  "${APP}-tools:latest" npx tsx scripts/seed.ts
+
+# صورة التشغيل النحيفة (تُبنى بعد الترحيل فتقرأ مخططاً محدّثاً)
+echo "› بناء صورة التشغيل"
+DOCKER_BUILDKIT=0 docker build --network coolify -q \
+  --build-arg DATABASE_URL="$DATABASE_URL" \
+  --build-arg SESSION_SECRET="$SESSION_SECRET" \
+  -t "${APP}:latest" .
 
 docker rm -f "$APP" >/dev/null 2>&1 || true
 docker run -d --name "$APP" --restart unless-stopped --network coolify \

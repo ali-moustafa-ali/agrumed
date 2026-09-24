@@ -5,38 +5,26 @@ import { getPublishedProducts } from "@/lib/queries";
 import { sendMail } from "@/lib/mail";
 import { customerConfirmation, salesNotification, type LeadMailData } from "@/lib/mail-templates";
 import { getSettings } from "@/lib/settings";
+import { clientIp, hit, isEmail } from "@/lib/rate-limit";
 
-/** حدّ بسيط لمعدل الطلبات في ذاكرة العملية — يوقف الإغراق الآلي. */
-const hits = new Map<string, { n: number; reset: number }>();
 const WINDOW = 10 * 60 * 1000;
-const LIMIT = 6;
-
-function rateLimited(ip: string) {
-  const now = Date.now();
-  const rec = hits.get(ip);
-  if (!rec || now > rec.reset) {
-    hits.set(ip, { n: 1, reset: now + WINDOW });
-    return false;
-  }
-  rec.n += 1;
-  if (hits.size > 5000) hits.clear();
-  return rec.n > LIMIT;
-}
+const PER_IP = 6;
+// سقف عام يحدّ الضرر حين يدور المهاجم بين عناوين كثيرة
+const GLOBAL = 120;
 
 function clean(v: unknown, max = 500) {
   return typeof v === "string" ? v.trim().slice(0, max) : "";
 }
 
 export async function POST(request: Request) {
-  const ip =
-    request.headers.get("cf-connecting-ip") ??
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ??
-    "unknown";
+  const ip = clientIp(request);
+  const perIp = hit(`leads:${ip}`, PER_IP, WINDOW);
+  const overall = hit("leads:all", GLOBAL, WINDOW);
 
-  if (rateLimited(ip)) {
+  if (perIp.limited || overall.limited) {
     return NextResponse.json(
       { ok: false, error: "عدد كبير من المحاولات. برجاء المحاولة بعد قليل." },
-      { status: 429 },
+      { status: 429, headers: { "Retry-After": String(perIp.retryAfter || overall.retryAfter) } },
     );
   }
 
@@ -82,7 +70,9 @@ export async function POST(request: Request) {
     });
   }
 
-  const email = clean(body.email, 160) || null;
+  const rawEmail = clean(body.email, 160);
+  // بريد غير صالح لا يُستخدم مستقبِلاً — وإلا صار المسار مُرحِّل بريد مفتوح
+  const email = rawEmail && isEmail(rawEmail) ? rawEmail : null;
   const source = clean(body.source) === "quote" ? "quote" : "contact";
 
   const lead = await createLead({

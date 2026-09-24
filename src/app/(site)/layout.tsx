@@ -13,6 +13,9 @@ const arabic = Cairo({
   display: "swap",
 });
 
+// الفوتر يقرأ الأقسام من قاعدة البيانات، فلا تُولَّد صفحات المتجر وقت البناء
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: {
     default: `${site.name} | ${site.tagline}`,

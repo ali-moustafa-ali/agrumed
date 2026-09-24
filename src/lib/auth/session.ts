@@ -19,6 +19,8 @@ export type SessionPayload = {
   role: string;
 };
 
+export type VerifiedSession = SessionPayload & { issuedAt: number };
+
 export async function encrypt(payload: SessionPayload) {
   return new SignJWT({ ...payload })
     .setProtectedHeader({ alg: "HS256" })
@@ -36,7 +38,8 @@ export async function decrypt(token: string | undefined) {
       userId: payload.userId,
       name: String(payload.name ?? ""),
       role: String(payload.role ?? "sales"),
-    } satisfies SessionPayload;
+      issuedAt: typeof payload.iat === "number" ? payload.iat : 0,
+    } satisfies VerifiedSession;
   } catch {
     return null;
   }

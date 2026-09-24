@@ -38,9 +38,10 @@ export async function changePassword(_prev: FormState, formData: FormData): Prom
     return { error: "كلمة المرور الحالية غير صحيحة." };
   }
 
+  // إبطال كل الجلسات القائمة: توكن مسروق لا ينفع بعد تغيير كلمة المرور
   await db
     .update(adminUsers)
-    .set({ passwordHash: await hashPassword(next) })
+    .set({ passwordHash: await hashPassword(next), sessionsValidFrom: new Date() })
     .where(eq(adminUsers.id, user.id));
 
   await db.insert(auditLog).values({
@@ -115,7 +116,10 @@ export async function setUserActive(id: number, active: boolean) {
     }
   }
 
-  await db.update(adminUsers).set({ active }).where(eq(adminUsers.id, id));
+  await db
+    .update(adminUsers)
+    .set(active ? { active } : { active, sessionsValidFrom: new Date() })
+    .where(eq(adminUsers.id, id));
   await db.insert(auditLog).values({
     actorId: actor.id,
     actorName: actor.name,
@@ -136,7 +140,7 @@ export async function resetUserPassword(_prev: FormState, formData: FormData): P
 
   await db
     .update(adminUsers)
-    .set({ passwordHash: await hashPassword(password) })
+    .set({ passwordHash: await hashPassword(password), sessionsValidFrom: new Date() })
     .where(eq(adminUsers.id, id));
   await db.insert(auditLog).values({
     actorId: actor.id,
@@ -202,7 +206,19 @@ export async function sendTestEmail(_prev: FormState, formData: FormData): Promi
 
 /* ───────────────── تسجيل الخروج من كل الأجهزة ───────────────── */
 
+/** يُنهي كل الجلسات على كل الأجهزة، لا جلسة هذا المتصفح وحدها. */
 export async function logoutEverywhere() {
-  await requireUser();
+  const user = await requireUser();
+  await db
+    .update(adminUsers)
+    .set({ sessionsValidFrom: new Date() })
+    .where(eq(adminUsers.id, user.id));
+  await db.insert(auditLog).values({
+    actorId: user.id,
+    actorName: user.name,
+    action: "logout-all",
+    entity: "admin_user",
+    entityId: String(user.id),
+  });
   await destroySession();
 }

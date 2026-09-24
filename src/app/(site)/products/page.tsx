@@ -5,8 +5,6 @@ import { getCategories, getPublishedProducts } from "@/lib/queries";
 import { toProduct } from "@/lib/catalog";
 import type { CategoryId } from "@/lib/types";
 
-export const dynamic = "force-dynamic";
-
 export const metadata: Metadata = {
   title: "المنتجات",
   description: "محفظة منتجات أجروميد: أسمدة سائلة وذوابة ومعلقة وخامات زراعية عالية النقاء.",

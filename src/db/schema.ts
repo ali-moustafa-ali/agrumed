@@ -25,6 +25,8 @@ export const adminUsers = pgTable(
     role: varchar("role", { length: 20 }).notNull().default("sales"),
     active: boolean("active").notNull().default(true),
     lastLoginAt: timestamp("last_login_at", { withTimezone: true }),
+    /** أي جلسة صدرت قبل هذا الوقت تُرفض — يجعل تغيير كلمة المرور يُخرج الجلسات القائمة */
+    sessionsValidFrom: timestamp("sessions_valid_from", { withTimezone: true }),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (t) => [uniqueIndex("admin_users_email_idx").on(t.email)],

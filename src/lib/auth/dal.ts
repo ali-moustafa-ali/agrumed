@@ -22,13 +22,21 @@ export const getCurrentUser = cache(async () => {
       email: adminUsers.email,
       role: adminUsers.role,
       active: adminUsers.active,
+      sessionsValidFrom: adminUsers.sessionsValidFrom,
     })
     .from(adminUsers)
     .where(eq(adminUsers.id, session.userId))
     .limit(1);
 
   if (!user || !user.active) return null;
-  return user;
+
+  // جلسة صدرت قبل آخر تغيير لكلمة المرور لم تعد صالحة
+  if (user.sessionsValidFrom) {
+    const cutoff = Math.floor(user.sessionsValidFrom.getTime() / 1000);
+    if (session.issuedAt < cutoff) return null;
+  }
+
+  return { id: user.id, name: user.name, email: user.email, role: user.role };
 });
 
 /** يوقف التنفيذ ويحوّل لصفحة الدخول إن لم تكن هناك جلسة صالحة. */

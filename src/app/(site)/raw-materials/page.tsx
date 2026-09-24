@@ -29,8 +29,6 @@ const points = [
   },
 ];
 
-export const dynamic = "force-dynamic";
-
 export default async function RawMaterialsPage() {
   const rows = await getPublishedProducts();
   const rawMaterials = rows.filter((p) => p.categorySlug === "raw").map(toProduct);

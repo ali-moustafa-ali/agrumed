@@ -10,14 +10,6 @@ import { getCategories, getProductBySlug, getPublishedProducts } from "@/lib/que
 import { toProduct } from "@/lib/catalog";
 import { site } from "@/lib/site";
 
-export const revalidate = 300;
-
-// لا نولّد الصفحات وقت البناء حتى لا يعتمد البناء على قاعدة البيانات؛
-// تُبنى عند أول طلب ثم تُخزَّن مؤقتاً وتُجدَّد عند تعديلها من لوحة التحكم.
-export function generateStaticParams() {
-  return [];
-}
-
 export async function generateMetadata({
   params,
 }: {
